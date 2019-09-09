@@ -6,7 +6,7 @@ In this module we will extend the data that was indexed in the previous module. 
 1) Leverage facets to show the diseases and their counts that are mentioned in the corpus of search results
 2) Filter documents that refer to a specific disease
 
-To do this, we will leverage a custom built Azure Functions that will be called by Cognitive Search with the text from the underlying document.  The function will process this text and respond with the entities found in that text.  These entities will then be stored in a separate Azure Search Collection field.
+To do this, we will leverage a "[Custom Skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-web-api)" built using Azure Functions that will be called by Cognitive Search with the text from the underlying document.  The function will process this text and respond with the entities found in that text.  These entities will then be stored in a separate Azure Search Collection field.
 
 ## Creating the Azure Function
 
@@ -60,7 +60,7 @@ We will first test the application locally.
 }
 ```
 
-6) Press Send and you should get a response that looks like:
+6) Press Send and you should get a response that looks like the following.  This is the format that the Azure Search Indexer expects to receive and will form the basis of the response for this Custom Skill.
 
 
 ```json
@@ -117,4 +117,18 @@ To create your own Azure Function:
 2) Choose "Azure Functions Consumption Plan"
 3) Choose "Create New" and click "Publish"
 4) This will launch a page to load your subscription (or request you log in to your subscription)
-5) 
+
+![](images/new-appservice.png)
+
+5) After it has deployed, open the [Azure Portal](https://portal.azure.com) and locate this Azure Function.
+6) Choose "Get Function URL" and copy the full URL (including the code parameter)
+
+![](images/function-url.png)
+
+7) Go back to Postman and replace the previous localhost request, with this new URL and press Send.  You should get the exact same result as above.
+
+
+
+## Integrating the Azure Function into the Azure Search Indexing Process
+
+Now that 
