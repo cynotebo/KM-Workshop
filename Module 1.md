@@ -39,8 +39,12 @@ Follow these steps to select and add built-in skillsets to your index:
 
 3. Make sure to select the **OCR enrichment** to extract merged_content field.  Now we can apply an enrichment to the merged_content field to extract the **locations** (lowercase 'l').  For consistency’s sake, let’s call the field name locations. 
 
+![](images/enrichments.png)
+
 ## Add a Knowledge store. 
 As you recall from the introductory session, the knowledge store is a new capability that we introduced into Public Preview in May.  Using the Knowledge Store enables you to use your data in scenarios that do not lend themselves naturally to search.  Once your data has been loaded into the Knowledge Store, you can do things like kick off RPA, run analytics or visualize in tools like PowerBI.
+
+![](images/addks.png)
 
 We're going to go ahead and create the Knowledge Store now through the Azure Portal and will come back to the visualizations in a later module.
 
@@ -53,14 +57,22 @@ We're going to go ahead and create the Knowledge Store now through the Azure Por
 - Make sure that the locations field is retrievable / facetable / filterable / searchable
 - Optional: You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
 
+ ![](images/indexdef.png)
  
 4.	Name the indexer *clinical-trials-small* (we only need to run it once for now). **Note that the index key is encoded by default*.
  
+![](images/indexer.png)
 
 Wait 2 or 3 minutes or so for the indexing to occur – then go check the status of your indexer on the portal.  
  
- 
+![](images/chkstatus.png)
+
+
+![](images/chkstatus2.png)
+
 After having indexed clinical trials using the portal experience, let’s go query the service.
+ 
+ ![](images/srchexplore.png)
  
 ### Knowledge Store Data Format
 Let's look at the tables we've created in the Knowledge Store:
