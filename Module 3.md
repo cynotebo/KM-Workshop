@@ -8,7 +8,7 @@ In this module you will learn about the 4 main objects that allow you to get dat
 
 As you walked though the Import Data Wizard in Module 1, it created 4 resources for you:
  
-
+![](images/objectmodel.png)
 
 1.	The **data source** defines information about the source of your data (type of data source, how to read it, credentials, etc.)
 2.	The **skillset** defines any enrichment steps [or skills ] that you apply to your data. 
@@ -22,13 +22,20 @@ Let’s change the index definition. Please be very careful because you can only
 
 ###	Inspect JSON in the portal. 
 
+![](images/jsonportal.png)
+
 Sometimes the portal makes it easy to make an edit. Or we could do it programmatically.
 Let’s add a new field call diseases of type **Collection(Edm.String)** from the portal and see how what the definition looks like afterwards. Make sure it’s **Retrievable/Filterable/Facetable/Searchable**
  
+ ![](images/indexdef2.png)
+ 
 +	Inspect in JSON in the Portal
+ 
+ ![](images/json2.png)
  
 +	**SAVE** the changes to your skillset
  
+![](images/savechanges.png)
 
 Now let’s modify the skillset to incorporate the disease extractor we built in Module 2.
 
@@ -36,7 +43,7 @@ First, let’s inspect what our skillset definition looks like. Bring up POSTMAN
 
 GET https://{name of your service}.search.windows.net/skillsets/clinical-trials-small?api-version=2019-05-06-Preview
 
- 
+ ![](images/postman.png)
 
 Make sure to set the **api-key header**  based on the key you can get from the portal.
 
@@ -44,9 +51,13 @@ Also, note that we are using the **2019-05-06-Preview** version because we are u
 
 First let’s inspect the JSON.  You will notice many skills were automatically generated. There should be 4 skills that follow this general pattern:
 
+ ![](images/4skills.png)
  
 ###	Add a new custom skill.
 We’ll add a step to the enrichment pipeline that extracts diseases, we’ll define where that fields get saved in the index and modify the indexer as well.
+
+![](images/diseaseextractor.png)
+
 
 We’ll create a PUT request to edit the skillset.
 
@@ -137,4 +148,4 @@ https://kmworkshop.search.windows.net/indexers/clinical-trials-small?api-version
 
 Now, let’s reprocess documents. Go to the portal to **RESET** your Indexer and re **RUN** it.
 
- 
+ ![](images/rerun.png)
