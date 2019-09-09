@@ -17,6 +17,50 @@ To get started, we will clone the [Azure Search Power Skill](https://github.com/
 Once you have downloaded this repository, open up the solution in Visual Studio.  
 In the Solution Explorer, locate the project "CustomEntitySearch" under the Text folder and open the words.csv file.
 
-We are going to place our own dictionary into this file.  It is a set of disease names that will be stored.  Download [this file](https://kmworkshop.blob.core.windows.net/workshop-lab-files/words.csv) and replace the contents of this file with what is in the Visual Studio project.
+We are going to place our own dictionary into this file.  It is a set of disease names that will be stored.  Download [this file](https://kmworkshop.blob.core.windows.net/workshop-lab-files/words.csv) and replace the contents of this file with what is in the Visual Studio project.   NOTE: This is not a fully vetted dictionary, and there are many incorrect mentions of diseases, but it does have well over 200K phrases available for us to use.
+
+`## Walking through the Azure Function code
+
+The main code for this function can be found in the following two files
+
+### WordLinker.cs
+
+If you open this file, you will find a function called WordLinker which receives a file type of json or csv.  In the above step we applied the dictionary to a CSV file and as such this function will be loading this file into memory to be used by the function.
+
+### CustomEntitySearch.cs
+
+There are a few interesting things to see in this file: 
+
+1) First you will notice that the above WordLinker function is used to populate a List called preLoadedWords.
+2) Next, in the RunCustomEntitySearch function, we can see that the user can actually supply the set of words they want to use in the API call (inRecord.Data.ContainsKey("words")).  If there is not a supplied list, the preLoadedWords will be used.
+3) A Regular Expression based mechanism is used to iterate through the text sent by the users to find phrases that match those of the dictionary.  
+4) The function returns a JSON document that contains both a set of unique EntitiesFound as well as the individual Entities with their text location.
+
+## Testing the Azure Function
+
+We will first test the application locally.  
+
+1) Right click on CustomEntitySearch in the Solution Explorer and choose "Set as StartUp Project"
+2) Press F5 - NOTE: You may need to allow the function to run
+3) Once the function is running it should supply you with the URL to use for POST calls (likely: http://localhost:7071/api/custom-search).  Copy this URL and open PostMan
+4) From PostMan, add this URL and change the request type from GET to POST.
+5) Click "Body" and below that choose "raw" and paste in the following JSON:
+
+```json
+  {
+    "values": [
+        {
+            "recordId": "1",
+            "data":
+            {
+                "text":  "This is a 53-year-old Hispanic man with diabetes, morbid obesity, hepatitis C, cirrhosis, history of alcohol and cocaine abuse, who presented in the emergency room on 01/07/09 for ground-level fall secondary to weak knees."
+            }
+        }
+    ]
+}
+```
+
+
+
 
 
