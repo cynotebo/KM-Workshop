@@ -11,10 +11,10 @@ Please make sure you fulfill the following pre-requisites before starting the wo
 a.	Copy the clinical trials  from (We need to figure out a location to copy the data from, if we put this in github, we could just put the data there.) and into blob storage.
 For the purposes of this exercise and to iterate quickly, our data source will have 100 documents. 
 Call your container clinical-trials-small
-5.	Create an Azure Search resource (We recommend the Basic Tier).
+5.	Create an Azure Search resource (We recommend the Basic Tier at a minimum).
 Learn more.
 
 6.	Create a Cognitive Services resource.
 You need to create it in the same region as you Azure Search resource. 
 
-7.	Install PowerBI desktop.
+7.	Install [PowerBI desktop](https://powerbi.microsoft.com/en-us/desktop/).
