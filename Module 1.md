@@ -16,11 +16,11 @@ Navigate to your search service, and click the **Import Data** button. This will
 2. Pick **Azure Blob Storage**, and navigate to your **clinical-trials-small** container.
  Name it *clinical-trials-small*, and then click on **Choose existing connection**
  
- ![](images/choose connection.png)
+ ![](images/chooseconnection.png)
  
 3. Select the clinical-trials-small container.
 
-![](images/select container.png)
+![](images/selectcontainer.png)
 
 4. Now click **Next** to add cognitive enrichments to it.
 
@@ -30,6 +30,9 @@ A skillset refers to an enrichment that you are adding to the data extraction pr
 Follow these steps to select and add built-in skillsets to your index:
 
 1. Attach the Cognitive Service resource you created earlier to this enrichment process. It will be used to power any of your pre-built AI models.
+
+![](images/skillset.png)
+
 2. Add enrichments:
 
     Name your skillset: *clinical-trials-small*
