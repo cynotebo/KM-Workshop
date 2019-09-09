@@ -71,12 +71,13 @@ Paste the response we got from the GET request, and add the additional skill.
 
 To get the URI, you will need to get it from the published skill you tested in module 2, but this is what it looked like for my skill…
 
+```
  {
             "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
             "name": "diseases",
             "description": "Disease Extraction Skill",
             "context": "/document",
-            "uri": "https://diseaseextraction.azurewebsites.net/api/custom-search?code=HXS0y4rEoQZ9p55A7wqybSeYFmYP6Lruna8y8HoAGu3kNSoLf80XWw==",
+            "uri": "<your custom skill URI here>",
             "httpMethod": "POST",
             "timeout": "PT90S",
             "batchSize": 1,
@@ -126,6 +127,7 @@ To get the URI, you will need to get it from the published skill you tested in m
                 ],
                 "objects": []
              }
+```
 
 ####	After you have made both changes, complete the PUT request.
 
