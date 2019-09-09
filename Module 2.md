@@ -53,12 +53,59 @@ We will first test the application locally.
             "recordId": "1",
             "data":
             {
-                "text":  "This is a 53-year-old Hispanic man with diabetes, morbid obesity, hepatitis C, cirrhosis, history of alcohol and cocaine abuse, who presented in the emergency room on 01/07/09 for ground-level fall secondary to weak knees."
+                "text":  "This is a 53-year-old man with diabetes, morbid obesity, hepatitis C, and cirrhosis."
             }
         }
     ]
 }
 ```
+
+6) Press Send and you should get a response that looks like:
+
+
+```json
+{
+    "values": [
+        {
+            "recordId": "1",
+            "data": {
+                "Entities": [
+                    {
+                        "name": "cirrhosis",
+                        "matchIndex": 74
+                    },
+                    {
+                        "name": "diabetes",
+                        "matchIndex": 31
+                    },
+                    {
+                        "name": "hepatitis",
+                        "matchIndex": 57
+                    },
+                    {
+                        "name": "hepatitis C",
+                        "matchIndex": 57
+                    },
+                    {
+                        "name": "obesity",
+                        "matchIndex": 48
+                    }
+                ],
+                "EntitiesFound": [
+                    "cirrhosis",
+                    "diabetes",
+                    "hepatitis",
+                    "hepatitis c",
+                    "obesity"
+                ]
+            },
+            "errors": [],
+            "warnings": []
+        }
+    ]
+}
+```
+
 
 
 
