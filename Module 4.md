@@ -5,6 +5,7 @@ Objective: Get familiar with the solution accelerator (aka.ms/kmsolutions), and 
 2. Open CognitiveSearch.UI.csproj in VS2019 
 2. Update appsettings.json
 
+```
   "SearchServiceName": "kmworkshop",
   "SearchApiKey": "B8365AC95521089B7E3FA4CC98435F32",
   "SearchIndexName": "clinical-trials-small",
@@ -15,6 +16,7 @@ Objective: Get familiar with the solution accelerator (aka.ms/kmsolutions), and 
   "KeyField": "metadata_storage_path",
   "IsPathBase64Encoded": true,
   "GraphFacet": "diseases"
+```
 
 3. Set Startup Project:
  
