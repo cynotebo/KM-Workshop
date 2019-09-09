@@ -10,11 +10,19 @@ Navigate to your search service, and click the **Import Data** button. This will
  ![](images/importdata.png)
  
 1.	Create data source called: *clinical-trials-mini*.
+
+![](images/datasource.png)
  
 2. Pick **Azure Blob Storage**, and navigate to your **clinical-trials-small** container.
-3. Name it *clinical-trials-small*, and then click on **Choose existing connection**
-4. Select the clinical-trials-small container.
-5. Now click **Next** to add cognitive enrichments to it.
+ Name it *clinical-trials-small*, and then click on **Choose existing connection**
+ 
+ ![](images/choose connection.png)
+ 
+3. Select the clinical-trials-small container.
+
+![](images/select container.png)
+
+4. Now click **Next** to add cognitive enrichments to it.
 
 ## Skillset
 A skillset refers to an enrichment that you are adding to the data extraction process.  Examples of skillsets are key phrase extraction, image extraction and entity recognition.  When building and index through the Azure Portal, you have several built-in enrichments available to use.  
