@@ -78,5 +78,10 @@ After having indexed clinical trials using the portal experience, let’s go que
 Let's look at the tables we've created in the Knowledge Store:
 
 We see two tables, one for the documents and another one for each of the entities identified in those documents 
- 
+
+![](images/kstable.png)
+
+
+![](images/kstable2.png)
+
 This data could be useful for analytics, to train an ML model, or simply to maintain a cache of any extractions we produced. In Module 3 we will create a visualization using data from the Knowledge Store.
