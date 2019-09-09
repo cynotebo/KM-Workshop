@@ -75,6 +75,36 @@ Now that the content has been indexed, we can use the portal to test some search
  
  ![](images/srchexplore.png)
  
+Let's try a few additional queries:
+
+Search for references to "Gaucher's" disease and do hit highlighting of the content where there is a reference to it:
+```
+gauchers&highlight=content
+```
+Notice as you scroll through the results that the English - Microsoft Analyzer was able to pick up variations to this phrase such as "Gaucher" and "Gaucher's"
+
+Add a parameter &$count=true to determine that there are 8 documents that refer to "Gaucher's" disease:
+```
+gauchers&highlight=content&$count=true
+```
+
+When we configured the Indexing of the content, we asked for Locations to be extracted from the content.  Let's take a look at this by searching for morquio diseaese and limiting the results to only return the metadata_title, Locations fields 
+```
+morquio&$select=metadata_title,Locations
+```
+Notice how the Locations field is a Collection (or array of strings) that includes all the Location names extracted from the content.
+
+Let's try to group all of the Locations by using Faceting:
+```
+morquio&$select=metadata_title,Locations&facet=Locations
+```
+We can see how the search results has added a list of the top Locations and how often they are found in documents that talk about Morquio.
+
+Finally, let's filter the results to documents that refer to Morquio and have a Location of "Emory University"
+```
+morquio&$select=metadata_title,Locations&$filter=Locations/any(location: location eq 'Emory University') 
+```
+ 
 ### Knowledge Store Data Format
 Let's look at the tables we've created in the Knowledge Store:
 
