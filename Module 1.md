@@ -70,7 +70,8 @@ Wait 2 or 3 minutes or so for the indexing to occur – then go check the status
 
 ![](images/chkstatus2.png)
 
-After having indexed clinical trials using the portal experience, let’s go query the service.
+## Searching the Content
+Now that the content has been indexed, we can use the portal to test some search queries. Open the "search explorer" and enter a search query such as "MPS" to allow us to find all document that refer to the disease MPS, and press "Search". Try adjusting the query with different phrases and terms to get an idea of the content.
  
  ![](images/srchexplore.png)
  
