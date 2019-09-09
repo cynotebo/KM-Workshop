@@ -5,11 +5,13 @@ This module uses the Azure Portal to create your first Azure Search index wihtou
 
 ## Using the Portal Import Data Flow:
 
-Navigate to your search service, and click the **Import Data** button. This will launch the Import Data Wizard.
+We will now create a data source called *clinical-trials-small* that will be used to load and index the data.
+
+1. Navigate to your search service, and click the **Import Data** button. This will launch the Import Data Wizard.
 
  ![](images/importdata.png)
  
-1.	Create data source called: *clinical-trials-mini*.
+
 
 ![](images/datasource.png)
  
