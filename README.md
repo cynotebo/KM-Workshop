@@ -5,12 +5,11 @@ In this exercise you will create a searchable index and an application that will
 ## Pre-Requisites
 Please make sure you fulfill the following pre-requisites before starting the workshop.
 1.	Have your own Azure account 
-2.	Be familiar Azure Portal
-3.	Make sure you can create Azure Search resources (including paid resources).  
-4.	Create an Azure Storage resource.
-a.	Copy the clinical trials  from (We need to figure out a location to copy the data from, if we put this in github, we could just put the data there.) and into blob storage.
-For the purposes of this exercise and to iterate quickly, our data source will have 100 documents. 
-Call your container clinical-trials-small
+2.	Be familiar [Azure Portal](https://portal.azure.com)
+3.	Make sure you can create Azure resources (including paid resources).  
+4.	Create an Azure Storage resource with a Blob container called clinical-trials-small.
+a.	Copy the clinical trials from... to this clinical-trials-small container (We need to figure out a location to copy the data from, if we put this in github, we could just put the data there.) and into blob storage.
+For the purposes of this exercise and to iterate quickly, our data source will have ~100 documents. 
 5.	Create an Azure Search resource (We recommend the Basic Tier at a minimum).
 Learn more.
 
