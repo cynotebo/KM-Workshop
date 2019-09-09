@@ -13,7 +13,7 @@ We will now create a data source called *clinical-trials-small* that will be use
 
  ![](images/importdata.png)
  
-
+Choose the drop down for **Existing data source**.
 
 ![](images/datasource.png)
  
