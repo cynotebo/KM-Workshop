@@ -12,4 +12,11 @@ To do this, we will leverage a custom built Azure Functions that will be called 
 
 The Azure Function will use a "dictionary" based technique to search the underlying text and respond with any terms or phrases that match what is stored in the dictionary.  With advances in ML and AI, there are much more advanced methods for doing this "named entity extraction", however in many cases this method often works quite well and is very simply to implement.  
 
-To get started, we will clone the github repository: 
+To get started, we will clone the [Azure Search Power Skill](https://github.com/Azure-Samples/azure-search-power-skills) github repository: git clone https://github.com/Azure-Samples/azure-search-power-skills.git
+
+Once you have downloaded this repository, open up the solution in Visual Studio.  
+In the Solution Explorer, locate the project "CustomEntitySearch" under the Text folder and open the words.csv file.
+
+We are going to place our own dictionary into this file.  It is a set of disease names that will be stored.  Download [this file](https://kmworkshop.blob.core.windows.net/workshop-lab-files/words.csv) and replace the contents of this file with what is in the Visual Studio project.
+
+
