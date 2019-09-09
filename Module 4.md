@@ -20,8 +20,11 @@ Objective: Get familiar with the solution accelerator (aka.ms/kmsolutions), and 
 
 3. Set Startup Project:
  
+ ![](images/setstart.png)
+ 
 4. Run
 5. Should get this:
  
+![](images/results.png)
 
 Note the 
