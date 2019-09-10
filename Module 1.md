@@ -32,12 +32,11 @@ Your screen should now look like this:
 
 ![](images/connectblob.jpg)
 
-4. Now click **Next** to add cognitive enrichments to it.
+4. Now click **Next: Add cognitive search (Optional)** to begin the steps of applying skillsets to your index.
 
 ## Skillset
-A skillset refers to an enrichment that you are adding to the data extraction process.  Examples of skillsets are key phrase extraction, image extraction and entity recognition.  When building and index through the Azure Portal, you have several built-in enrichments available to use.  
+In Azure Search, we call extraction and enrichment steps cognitive skills, which are combined into a skillset referenced during indexing.  In this exercise, you will be learning how to use the [built-in skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills) through the Azure Portal.  In a later module, we will show you how to attach these skills programattically and how to build your own [custom skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface). 
 
-Follow these steps to select and add built-in skillsets to your index:
 
 1. Attach the Cognitive Service resource you created earlier to this enrichment process. It will be used to power any of your pre-built AI models.
 
