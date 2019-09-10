@@ -30,7 +30,7 @@ In the drop down for **Existing data source**, choose **Azure Blob Storage**.
 
 Your screen should now look like this:
 
-![](images/connectblob)
+![](images/connectblob.jpg)
 
 4. Now click **Next** to add cognitive enrichments to it.
 
