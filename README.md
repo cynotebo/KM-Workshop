@@ -23,4 +23,5 @@ Please make sure you fulfill the following pre-requisites before starting the wo
   *Note - You need to create it in the same region as you Azure Search resource*. 
 
 9.	Install [Visual Studio 2017](https://visualstudio.microsoft.com/) or later.
-10. Install [PowerBI desktop](https://powerbi.microsoft.com/en-us/desktop/).
+10. Install [Postman](https://www.getpostman.com/)
+11. Install [PowerBI desktop](https://powerbi.microsoft.com/en-us/desktop/).
