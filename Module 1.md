@@ -37,40 +37,77 @@ Your screen should now look like this:
 ## Skillset
 In Azure Search, we call extraction and enrichment steps cognitive skills, which are combined into a skillset referenced during indexing.  In this exercise, you will be learning how to use the [built-in skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills) through the Azure Portal.  In a later module, we will show you how to attach these skills programattically and how to build your own [custom skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface). 
 
+In the next three steps, you will be working through the three drop-down arrows presented: 
 
-1. Attach the Cognitive Service resource you created earlier to this enrichment process. It will be used to power any of your pre-built AI models.
+![](images/attachenrich.png)
+
+
+### Attach the Cognitive Services 
+
+This is the resource you created earlier as part of your intial lab set up and is used to power your pre-built AI models.
 
 ![](images/skillset.png)
 
-2. Add enrichments:
+### Add enrichments
 
     Name your skillset: *clinical-trials-small*
 
-3. Make sure to select the **OCR enrichment** to extract merged_content field.  Now we can apply an enrichment to the merged_content field to extract the **locations** (lowercase 'l').  For consistency’s sake, let’s call the field name locations. 
+3. Make sure to select the **OCR enrichment** to extract **merged_content** field.  
+
++ Now we can apply an enrichment to the merged_content field to extract the **locations** (lowercase 'l').  For consistency’s sake, let’s leave the field name locations. 
+ 
++ Leave all of the other enrichment boxes blank at this time as we will add in additional skills later in the lab.
 
 ![](images/enrichments.png)
 
-## Add a Knowledge store. 
+
+### Save enrichments to a knowledge store (Preview) 
 As you recall from the introductory session, the knowledge store is a new capability that we introduced into Public Preview in May.  Using the Knowledge Store enables you to use your data in scenarios that do not lend themselves naturally to search.  Once your data has been loaded into the Knowledge Store, you can do things like kick off RPA, run analytics or visualize in tools like PowerBI.
+
+Projections are your mechanism for structuring data in a knowledge store. For example, through projections, you can choose whether output is saved as a single blob or a collection of related tables. An easy way to view knowledge store contents is through the built-in Storage Explorer for Azure storage.
+
+The knowledge store supports two types of projections:
+
+ + Tables: For data that is best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
+
+ + Objects: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
+
+For this case, we are going to use Azure table projections 
 
 ![](images/addks.png)
 
 We're going to go ahead and create the Knowledge Store now through the Azure Portal and will come back to the visualizations in a later module.
 
-*Note - Using the Document Cracking Pipeline, you can load your data into an Azure Search Index, the Knowledge Store or both.*
-1. Click choose an existing connection, select your storage account and create a container called *clinical-trials-small-ks*
-2. Click **Next** to customize the target index.
+1. Click choose an existing connection and select your storage account.
+2. Click on **+ Container** to create a new container called *clinical-trials-small-ks*.
+3. **Select** the container created in the above step.
+4. Under **Azure table projections**, make sure *Documents* and *Entities* have been selected.
+2. Click **Next: Customize the target index**.
 
-3.	In the index definition, rename to it to *clinical-trials-small*,
-- Make sure all the field are retrievable. 
-- Make sure that the locations field is retrievable / facetable / filterable / searchable
+
+## Index Definition
+In this step, you are designing your Azure Search index.  This is an imporant and powerful part of the index build process as you select they types of Analyzer(s) you want to use and make determimations on features such as which fields and data will be retrievable, filterable, sortable, and searchable. (Liam to perhaps add some additional content here)
+
+1. Give your index a name like *clinical-trails-index*
+2. Leave **Key** as the default option
+3. Under **Suggester name** add sg and set **Search mode** to *analyzingInfixMatching*
+4.	In the index definition fields:
+
+- Make sure all the field are **retrievable**. 
+- Make sure that the locations field is **retrievable / facetable / filterable / searchable**.
 - Optional: You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
 
  ![](images/indexdef.png)
- 
-4.	Name the indexer *clinical-trials-small* (we only need to run it once for now). **Note that the index key is encoded by default*.
+
+### **Click** on **Next: Create an indexer**.
+
+1. Name the indexer *clinical-trials-small* .
+2. Set the **Schedule** to Once
+3. Click on the **Advanced options** drop down and note that that the index key is Base-64 encoded by default.
  
 ![](images/indexer.png)
+
+4. Click on **Submit**
 
 Wait 2 or 3 minutes or so for the indexing to occur – then go check the status of your indexer on the portal.  
  
