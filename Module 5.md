@@ -1,4 +1,16 @@
 # Analyzing extracted data with PowerBI
+Let's look at the tables we created when we built the Knowledge Store in module 1:
+
+We see two tables, one for the documents and another one for each of the entities identified in those documents 
+
+![](images/kstable.png)
+
+
+![](images/kstable2.png)
+
+Now that we projected information to the Knowledge Store, this structured data could be useful in scenarios that go beyond Search.  This data could be useful for analytics, to train an ML model, or simply to maintain a cache of any extractions we produced. In this module we’ll connect the table projections we created to PowerBI and create a few sample graphs with the extracted data.
+
+# Analyzing extracted data with PowerBI
 Objective: Now that we projected information to the Knowledge Store, this structured data could be useful in scenarios that go beyond Search. In this module we’ll connect the table projections we created to PowerBI and create a few sample graphs with the extracted data.
 
 1.	Run **PowerBI Desktop** and click **Get Data**.
