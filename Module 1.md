@@ -13,18 +13,24 @@ We will now create a data source called *clinical-trials-small* that will be use
 
  ![](images/importdata.png)
  
-Choose the drop down for **Existing data source**.
+In the drop down for **Existing data source**, choose **Azure Blob Storage**.
 
 ![](images/datasource.png)
  
-2. Pick **Azure Blob Storage**, and navigate to your **clinical-trials-small** container.
- Name it *clinical-trials-small*, and then click on **Choose existing connection**
+2. Name your Index *clinical-trails-small*
++ **Data to Extract** set to *Content and Metadata*
+3. Click on **Choose an existing connection** and select your Azure Storage Account. 
+
  
  ![](images/chooseconnection.png)
  
 3. Select the clinical-trials-small container.
 
 ![](images/selectcontainer.png)
+
+Your screen should now look like this:
+
+![](images/connectblob)
 
 4. Now click **Next** to add cognitive enrichments to it.
 
