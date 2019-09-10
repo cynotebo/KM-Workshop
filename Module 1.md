@@ -1,15 +1,19 @@
 
 # Module 1: Using Azure Portal to Create Your Index - No Code Required
 
-This module uses the Azure Portal to create your first Azure Search index wihtout writing any code.  Following these steps you will: ingest a set of files (clinical-trials), extract both structured and unstructured text from those files, and index their content.
+This module uses the Azure Portal to create your first Azure Search index wihtout writing any code.  Following these steps you will: ingest a set of files (clinical-trials), extract both structured and unstructured text from those files, and index their content and learn how to query your new index.  Finally, we'll use the Azure Portal to quickly build out the new (preview) capability of the Knowledge Store, which we'll explore in greater detail in Module 5.
+
+The instructions that follow assume that you have completed all of the pre-requisites found in the ReadMe to this lab and have provisioned all of the necessary resources to your Azure subscription.  If you have not already completed these steps, you will need to do so prior to moving on to the next steps.
 
 ## Using the Portal Import Data Flow:
 
-Navigate to your search service, and click the **Import Data** button. This will launch the Import Data Wizard.
+We will now create a data source called *clinical-trials-small* that will be used to load and index the data.
+
+1. Navigate to your search service, and click the **Import Data** button. This will launch the Import Data Wizard.
 
  ![](images/importdata.png)
  
-1.	Create data source called: *clinical-trials-mini*.
+Choose the drop down for **Existing data source**.
 
 ![](images/datasource.png)
  

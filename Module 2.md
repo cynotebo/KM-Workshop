@@ -126,9 +126,3 @@ To create your own Azure Function:
 ![](images/function-url.png)
 
 7) Go back to Postman and replace the previous localhost request, with this new URL and press Send.  You should get the exact same result as above.
-
-
-
-## Integrating the Azure Function into the Azure Search Indexing Process
-
-Now that 
