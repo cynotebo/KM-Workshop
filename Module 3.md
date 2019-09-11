@@ -109,8 +109,7 @@ To get the URI, you will need to get it from the published skill you tested in m
                     },
                     {
                         "tableName": "clinicalTrialsSmallEntities",
-                        "generatedKeyName": "Entitiesid",
-                        "source": "/document/tableprojection/Entities/*",
+                        "generatedKeyName": "Entitiesid",                        "source": "/document/tableprojection/Entities/*",
                         "sourceContext": null,
                         "inputs": []
                     },
@@ -151,3 +150,16 @@ https://kmworkshop.search.windows.net/indexers/clinical-trials-small?api-version
 Now, let’s reprocess documents. Go to the portal to **RESET** your Indexer and re **RUN** it.
 
  ![](images/rerun.png)
+ 
+## Search Resulting Data
+ 
+It will take a little time to index the resulting content, however we can go to the "Search Explorer" from the portal and start looking at the resulting data.  
+
+From your Azure Search service, choose Indexes and then click on the index you have been working with in this module.
+In the query string, enter: 
+
+```
+search=*&facet=diseases
+```
+This tells the search engine to search all documents (*) and group the results by diseases.
+
