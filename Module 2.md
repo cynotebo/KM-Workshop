@@ -55,9 +55,17 @@ We will first test the application locally.
 
 1) Right click on CustomEntitySearch in the Solution Explorer and choose "Set as StartUp Project"
 2) Press F5 - NOTE: You may need to allow the function to run
-3) Once the function is running it should supply you with the URL to use for POST calls (likely: http://localhost:7071/api/custom-search).  Copy this URL and open PostMan
-4) From PostMan, add this URL and change the request type from GET to POST.
-5) Click "Body" and below that choose "raw" and paste in the following JSON:
+3) Once the function is running it should supply you with the URL to use for POST calls.  Copy this URL.
+
+![](images/azurefunction.png)
+
+
+4) Open PostMan and click on **New** to create a new Request (you can add this to any collection you'd like)
+5) Enter the URL copied and change the request type from GET to POST.
+
+![](images/postman2.png)
+
+5) Click **Body** and below that choose **raw** and paste in the following JSON:
 
 ```json
   {
@@ -119,7 +127,7 @@ We will first test the application locally.
 }
 ```
 7) Optionally you can set breakpoints on the Azure Function app to get a better idea on how it works
-8) Stop the running project.
+8) Return to Visual Studio and stop the running project.
 
 ## Deploy the Azure Function
 
