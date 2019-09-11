@@ -12,16 +12,23 @@ We will also be using some of the released [Power Skills](https://azure.microsof
 
 ## Creating the Azure Function
 
-The Azure Function will use a "dictionary" based technique to search the underlying text and respond with any terms or phrases that match what is stored in the dictionary.  With advances in ML and AI, there are much more advanced methods for doing this "named entity extraction", however in many cases this method often works quite well and is very simply to implement.  
+The Azure Function will use a "dictionary" based technique to search the underlying text and respond with any terms or phrases that match what is stored in the dictionary.  With advances in ML and AI, there are much more advanced methods for doing this type of "named entity extraction", however in many cases this method often works quite well and is very simple to implement.  
 
-To get started, we will clone the [Azure Search Power Skill](https://github.com/Azure-Samples/azure-search-power-skills) github repository: git clone https://github.com/Azure-Samples/azure-search-power-skills.git
-
+To get started, we will clone the [Azure Search Power Skill](https://github.com/Azure-Samples/azure-search-power-skills) github repository: 
+```
+  git clone https://github.com/Azure-Samples/azure-search-power-skills.git
+```
 Once you have downloaded this repository, open up the solution in Visual Studio.  
-In the Solution Explorer, locate the project "CustomEntitySearch" under the Text folder and open the words.csv file.
 
-We are going to place our own dictionary into this file.  It is a set of disease names that will be stored.  Download [this file](https://kmworkshop.blob.core.windows.net/workshop-lab-files/words.csv) and replace the contents of this file with what is in the Visual Studio project.   NOTE: This is not a fully vetted dictionary, and there are many incorrect mentions of diseases, but it does have well over 200K phrases available for us to use.
+In the Solution Explorer, locate the project "CustomEntitySearch" under the Text folder and open the **words.csv** file.
 
-`## Walking through the Azure Function code
+We are going to place our own dictionary of disease names into this file.    
+
+Download [this file](https://kmworkshop.blob.core.windows.net/workshop-lab-files/words.csv) and replace the contents of this file with what is in the Visual Studio project.   
+
+  *NOTE: This is not a fully vetted dictionary, and there are many incorrect mentions of diseases, but it does have well over 200K phrases available for us to use and more than adequate for the purposes of this lab*.
+
+## Walking through the Azure Function code
 
 The main code for this function can be found in the following two files
 
@@ -33,8 +40,8 @@ If you open this file, you will find a function called WordLinker which receives
 
 There are a few interesting things to see in this file: 
 
-1) First you will notice that the above WordLinker function is used to populate a List called preLoadedWords.
-2) Next, in the RunCustomEntitySearch function, we can see that the user can actually supply the set of words they want to use in the API call (inRecord.Data.ContainsKey("words")).  If there is not a supplied list, the preLoadedWords will be used.
+1) First you will notice that the above WordLinker function is used to populate a List called *preLoadedWords*.
+2) Next, in the *RunCustomEntitySearch* function, we can see that the user can actually supply the set of words they want to use in the API call (inRecord.Data.ContainsKey("words")).  If there is not a supplied list, the *preLoadedWords* will be used.
 3) A Regular Expression based mechanism is used to iterate through the text sent by the users to find phrases that match those of the dictionary.  
 4) The function returns a JSON document that contains both a set of unique EntitiesFound as well as the individual Entities with their text location.
 
