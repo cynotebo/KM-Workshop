@@ -131,7 +131,9 @@ We will first test the application locally.
 
 ## Deploy the Azure Function
 
-Now that we have a working Azure Function, we will deploy it to Azure.  NOTE: If you prefer not to create your own resource (and resulting costs), you can skip this section and simply use a pre-deployed function located at https://diseaseextraction.azurewebsites.net/api/custom-search?code=HXS0y4rEoQZ9p55A7wqybSeYFmYP6Lruna8y8HoAGu3kNSoLf80XWw==).
+Now that we have a working Azure Function, we will deploy it to Azure.  
+
+  *NOTE: If you prefer not to create your own resource (and resulting costs), you can skip this section and simply use a pre-deployed function located at https://diseaseextraction.azurewebsites.net/api/custom-search?code=HXS0y4rEoQZ9p55A7wqybSeYFmYP6Lruna8y8HoAGu3kNSoLf80XWw==)*.
 
 To create your own Azure Function:
 1) In Solution Explorer, right click on the CustomEntitySearch project and choose: Publish
