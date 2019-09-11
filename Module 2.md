@@ -20,7 +20,9 @@ To get started, we will clone the [Azure Search Power Skill](https://github.com/
 ```
 Once you have downloaded this repository, open up the solution in Visual Studio.  
 
-In the Solution Explorer, locate the project "CustomEntitySearch" under the Text folder and open the **words.csv** file.
+In the Solution Explorer, locate the project "CustomEntitySearch" under the **Text** folder and open the **words.csv** file.
+
+![](images/wordscsv.png)
 
 We are going to place our own dictionary of disease names into this file.    
 
@@ -34,11 +36,13 @@ The main code for this function can be found in the following two files
 
 ### WordLinker.cs
 
-If you open this file, you will find a function called WordLinker which receives a file type of json or csv.  In the above step we applied the dictionary to a CSV file and as such this function will be loading this file into memory to be used by the function.
+If you open this file, you will find a function called *WordLinker* which receives a file type of json or csv.  In the above step we applied the dictionary to a CSV file and as such this function will be loading this file into memory to be used by the function.
 
 ### CustomEntitySearch.cs
 
-There are a few interesting things to see in this file: 
+CustomEntitySearch is one of the Power Skill functions mentioned earlier.  Spend a bit of time walking through the code as there are a few interesting things to see in this file: 
+
+![](images/customentity.png)
 
 1) First you will notice that the above WordLinker function is used to populate a List called *preLoadedWords*.
 2) Next, in the *RunCustomEntitySearch* function, we can see that the user can actually supply the set of words they want to use in the API call (inRecord.Data.ContainsKey("words")).  If there is not a supplied list, the *preLoadedWords* will be used.
