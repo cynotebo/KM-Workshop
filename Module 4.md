@@ -61,11 +61,15 @@ Let's create a scoring profile for this.
 * Choose Scoring Profiles and choose "Add Scoring Profile"
 * Name it "diseaseBoost" and choose "Add Scoring Profile" to save it
 
+ ![](images/scoring_profile.png)
+ 
 * In the resulting scoring profile, choose "Add Weights"
 * Set diseases to get a boosting of 3
 * Set diseasesPhonetic to get a boosting of 1 (which is actually not needed since the default is 1)
 * Click OK
 
+ ![](images/field_boosting.png)
+ 
 Next, open the Search Explorer and we will try a few queries that with and without this scoring profile:
 
 
