@@ -296,6 +296,7 @@ Body:
 
 ### Create the Skillset
 Replace the [searchservice] with your search service and use your admin api key in the header.
+Note: The below skillset leverages a pre-existing Azure Function (https://diseaseextraction.azurewebsites.net/api/custom-search?code=HXS0y4rEoQZ9p55A7wqybSeYFmYP6Lruna8y8HoAGu3kNSoLf80XWw==) to extract the diseases.  You can use this as-is or change to the one you created in the previous module.
 
 PUT: https://[searchservice].search.windows.net/skillsets/patient-demo?api-version=2019-05-06
 Headers:
