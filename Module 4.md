@@ -47,4 +47,15 @@ Try sending various different words and phrases to see how they get encoded.
 
 There are a lot of other intersting custom analyzers and tokenizers that can be used such [Regular Expression](https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers#property-reference) (RegEx) that allows you to leverage patters to find distinct tokens.  
 
+## Ranking using Scoring Profiles 
+
+Azure Search uses a number of textual based factors to determine what is the most relevent document to send back, and this is prmarily based on an algorithm called TF/IDF which basically looks at the Term Frequency, or how often a term that is queried matches in the document and then uses Inverse Document Frequency to help move words that are extremely frequently found across many documents (such as is or the). 
+
+In some cases, the ranking of results that Azure Search provided by default is not optimal for a user.  Let's take the example we used for Custom Analyzers which was to allow people who search for "Gowcher" to find a match of "Gaucher's" in the diseasesPhonetic field.  But what if there was a disease called "Gowchirs" which also got tokenized as KXRS (see above).  That means that if someone actually searches for "Gaucher's", the search engine would potentially give similar scoring to hits of "Gaucher's" or "Gowchirs" resulting in a potentially confused user.
+
+Luckily you have a lot of control over this in Azure Search.  One of the easiest ways to handle this is to create what is called a [scoring profile](https://docs.microsoft.com/en-us/azure/search/index-add-scoring-profiles).  You can have one or more scoring profiles created for a search index and each scoring profiles has a set of weights and functions that can be used to adjust the default scoring (and resulting ordering) of the search results.  For our example, we might want to create a scoring profile that gives more weighting to the diseases field than the diseasesPhonetic field.  That way if someone searched for "Gaucher's" and there was a match in the diseases field, it would be boosted higher than that of one found in the diseasesPhonetic field.  However, if someone searched for "Gowchirs" and it was not found in the diseases field, the lower boosting from a hit in the diseasesPhonetic field would still return a result.
+
+Let's create a scoring profile for this.  
+
+* Open the Azure Portal and choose your Index
 
