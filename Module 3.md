@@ -199,11 +199,20 @@ Add this **outputFieldMapping to the indexer**. This will specify where in what 
 Do a GET and then a PUT with
 
 https://kmworkshop.search.windows.net/indexers/clinical-trials-small?api-version=2019-05-06
-        {
+
+```json
+       {
             "sourceFieldName": "/document/diseases",
             "targetFieldName": "diseases",
             "mappingFunction": null
-        }
+        },
+        {
+            "sourceFieldName": "/document/diseases",
+            "targetFieldName": "diseasesPhonetic",
+            "mappingFunction": null
+        },
+ ```
+
 
 Now, let’s reprocess documents. Go to the portal to **RESET** your Indexer and re **RUN** it.
 
