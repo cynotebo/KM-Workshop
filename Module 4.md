@@ -45,6 +45,6 @@ Notice how both result in a token with the value: KXRS.
 
 Try sending various different words and phrases to see how they get encoded.
 
-There are a lot of other intersting custom analyzers and tokenizers that can be used such (Regular Expression)[https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers#property-reference] (RegEx) that allows you to leverage patters to find distinct tokens.  
+There are a lot of other intersting custom analyzers and tokenizers that can be used such [Regular Expression](https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers#property-reference) (RegEx) that allows you to leverage patters to find distinct tokens.  
 
 
