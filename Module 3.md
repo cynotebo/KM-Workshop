@@ -230,3 +230,7 @@ search=*&facet=diseases
 ```
 This tells the search engine to search all documents (*) and group the results by diseases.
 
+Let's also use this new field to allow us to do a strict filter to any documents that talk about the disease "morquio"
+search=*&$filter=diseases/any(disease: disease eq 'morquio')&$select=metadata_title,diseases
+
+Try adjusting this query to only include documents that talk about 'morquio' and do not talk about 'hunter's disease'
