@@ -34,15 +34,17 @@ BODY:
 
 Notice how both result in a token with the value: KXRS.
 
+```json
+{
+   "token": "KXRS",
+   "startOffset": 0,
+   "endOffset": 8,
+   "position": 0
+}
+```
+
 Try sending various different words and phrases to see how they get encoded.
 
 There are a lot of other intersting custom analyzers and tokenizers that can be used such (Regular Expression)[https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers#property-reference] (RegEx) that allows you to leverage patters to find distinct tokens.  
 
-```json
-{
-            "token": "KXRS",
-            "startOffset": 0,
-            "endOffset": 8,
-            "position": 0
-}
-```
+
