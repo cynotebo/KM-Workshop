@@ -18,7 +18,7 @@ Now that we projected information to the Knowledge Store, this structured data c
  
     ![](images/mod5/ks-pbi-getdata.png)
  
-2.	Select **Azure** > **Azure Table Storage**, and enter **your account** name.
+2.	Select **Azure** > **Azure Table Storage**, and enter **your account** name.  (This is the name you gave your Azure Storage Account in module 1)
  
     ![](images/mod5/ks-pbi-getdata2.png)
  
