@@ -24,7 +24,7 @@ Now that we projected information to the Knowledge Store, this structured data c
  
     ![](images/mod5/ks-pbi-getdata3.png)
  
-3.	When prompted, enter the key to your storage account.
+3.	When prompted, enter the key to your storage account.  You will find this in the Azure Portal as shown below.
 
 ![](images/storeacct.png)
 
