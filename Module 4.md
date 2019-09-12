@@ -67,10 +67,14 @@ Let's create a scoring profile for this.
 * Set diseases to get a boosting of 3
 * Set diseasesPhonetic to get a boosting of 1 (which is actually not needed since the default is 1)
 * Click OK
+* Click Save, to save this updated scoring profiles
 
  ![](images/field_boosting.png)
  
 Next, open the Search Explorer and we will try a few queries that with and without this scoring profile:
 
+```
+&scoringProfile=diseaseBoost
+```
 
 
