@@ -28,6 +28,7 @@ Just as we did in Module 3, we will leverage Postman to create the Data Source, 
 Replace the [searchservice] with your search service and use your admin api key in the header.
 
 PUT: https://[searchservice].search.windows.net/indexes/patient-info?api-version=2019-05-06
+
 Headers:
 * Content-Type: application/json
 * api-key: [your admin api-key]
@@ -271,6 +272,7 @@ Body:
 Replace the [searchservice] with your search service and use your admin api key in the header.
 
 PUT: https://[searchservice].search.windows.net/datasources/medical-demo?api-version=2019-05-06
+
 Headers:
 * Content-Type: application/json
 * api-key: [your admin api-key]
@@ -299,6 +301,7 @@ Replace the [searchservice] with your search service and use your admin api key 
 Note: The below skillset leverages a pre-existing Azure Function (https://diseaseextraction.azurewebsites.net/api/custom-search?code=HXS0y4rEoQZ9p55A7wqybSeYFmYP6Lruna8y8HoAGu3kNSoLf80XWw==) to extract the diseases.  You can use this as-is or change to the one you created in the previous module.
 
 PUT: https://[searchservice].search.windows.net/skillsets/patient-demo?api-version=2019-05-06
+
 Headers:
 * Content-Type: application/json
 * api-key: [your admin api-key]
@@ -445,6 +448,7 @@ Body:
 Replace the [searchservice] with your search service and use your admin api key in the header.
 
 PUT: https://[searchservice].search.windows.net/indexers/patient-info?api-version=2019-05-06
+
 Headers:
 * Content-Type: application/json
 * api-key: [your admin api-key]
