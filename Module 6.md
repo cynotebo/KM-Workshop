@@ -1,4 +1,4 @@
-# Module 6 (Optional): Indexing data from Azure SQL
+# Module 6: Indexing data from Azure SQL
 
 In the past 5 modules, we focused on indexing content from unstructured sources such as PDF's.  Often, there is a lot of data that exists in structured data sources such as Azure SQL or Cosmos DB which could benefit from the ability to perform full-text search.  The advantage here, is that unlike unstrutured data such as PDF's, the data has already been structured so we can make use of this through faceting and filtering.  Yet, still there is often text content that can benefit from "enrichment".  
 
