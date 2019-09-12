@@ -12,7 +12,7 @@ In the previous module, we created an index that contained a field called custom
 
 There are various phoentic encoders that encode words in different ways.  The one I chose is called doubleMetaphone and this encodes both Gaucher's and Gowchers to a code of KXRS.  Since it is stored in the field as KXRS, when someone searches for either Gaucher's or Gowchers, they both get encoded to the same value and as a result you get a match.
 
-You can validate what this encoding looks like by executing the following two GET requests against your search index and the phonetic analyzer my_phonetic that was created in the previous module.:
+You can validate what this encoding looks like by executing the following two requests using the Azure Search Analyze API against your search index and the phonetic analyzer "my_phonetic" that was created in the previous module.:
 
 ```
 GET: https://[search service].search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
