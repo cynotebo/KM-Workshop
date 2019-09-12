@@ -58,4 +58,15 @@ Luckily you have a lot of control over this in Azure Search.  One of the easiest
 Let's create a scoring profile for this.  
 
 * Open the Azure Portal and choose your Index
+* Choose Scoring Profiles and choose "Add Scoring Profile"
+* Name it "diseaseBoost" and choose "Add Scoring Profile" to save it
+
+* In the resulting scoring profile, choose "Add Weights"
+* Set diseases to get a boosting of 3
+* Set diseasesPhonetic to get a boosting of 1 (which is actually not needed since the default is 1)
+* Click OK
+
+Next, open the Search Explorer and we will try a few queries that with and without this scoring profile:
+
+
 
