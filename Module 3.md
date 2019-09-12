@@ -29,10 +29,68 @@ Let’s add a new field call diseases of type **Collection(Edm.String)** from th
  
  ![](images/indexdef2.png)
  
-+	Inspect in JSON in the Portal
++	The first change we will make is to add two new fields.  The first one, called "diseases" will simply hold a collection of diseases extracted from the text.  The second field, called "diseasesPhonetic" will also hold the diseases extracted, however, it will use something called a Phonetic analyzer.  This is one of the many Custom Analyzers that Azure Search makes available, to allow you to search for words that sounds phonetically similar.  We will talk about this in much more detail later.
  
- ![](images/json2.png)
- 
+```json
+{
+	"name": "diseases",
+	"type": "Collection(Edm.String)",
+	"searchable": true,
+	"filterable": false,
+	"retrievable": true,
+	"sortable": false,
+	"facetable": false,
+	"key": false,
+	"indexAnalyzer": null,
+	"searchAnalyzer": null,
+	"analyzer": "en.microsoft",
+	"synonymMaps": []
+},
+{
+	"name": "diseasesPhonetic",
+	"type": "Collection(Edm.String)",
+	"searchable": true,
+	"filterable": false,
+	"retrievable": true,
+	"sortable": false,
+	"facetable": false,
+	"key": false,
+	"indexAnalyzer": null,
+	"searchAnalyzer": null,
+	"analyzer": "my_phonetic",
+	"synonymMaps": []
+}
+```
+
+You will notice that the diseasePhonetic field leverages a different analyzer called "my_phonetic".  We need to create this custom analyzer by updating the index schema as follows:
+
+```json
+"analyzers": [
+{
+	"@odata.type": "#Microsoft.Azure.Search.CustomAnalyzer",
+	"name": "my_phonetic",
+	"tokenizer": "microsoft_language_tokenizer",
+	"tokenFilters": [
+		"lowercase",
+		"asciifolding",
+		"phonetic_token_filter"
+	],
+	"charFilters": []
+}
+],
+"tokenizers": [],
+"tokenFilters": [
+{
+	"@odata.type": "#Microsoft.Azure.Search.PhoneticTokenFilter",
+	"name": "phonetic_token_filter",
+	"encoder": "doubleMetaphone",
+	"replace": true
+}
+]
+```
+
+One thing to note from the above is that this phonetic analyzer uses the (doubleMetaphone)[https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers#property-reference] encoder.  There are numerous differnt types of phonetic encoding that you could try if this does not fit your needs.
+
 +	**SAVE** the changes to your skillset
  
 ![](images/savechanges.png)
