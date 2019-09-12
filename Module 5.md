@@ -26,6 +26,8 @@ Now that we projected information to the Knowledge Store, this structured data c
  
 3.	When prompted, enter the key to your storage account.
 
+![](images/storeacct.png)
+
 4.	Select the 3 tables we just produced, and click **Load**.
  
     ![](images/mod5/ks-pbi-getdata4.png)
