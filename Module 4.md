@@ -77,4 +77,10 @@ Next, open the Search Explorer and we will try a few queries that with and witho
 &scoringProfile=diseaseBoost
 ```
 
+There are a number of other functions that can be used to adjust the scoring of search results which we will not be covering including:
 
+- freshness should be used when you want to boost by how new or old an item is. This function can only be used with datetime fields (edm.DataTimeOffset). Notice the boostingDuration attribute is used only with the freshness function.
+- magnitude should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with double and integer fields.
+For the magnitude function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set boostingRangeStart at 100 and boostingRangeEnd at 1 to boost the lower-priced items.
+- distance should be used when you want to boost by proximity or geographic location. This function can only be used with Edm.GeographyPoint fields.
+- tag should be used when you want to boost by tags in common between documents and search queries. This function can only be used with Edm.String and Collection(Edm.String) fields.
