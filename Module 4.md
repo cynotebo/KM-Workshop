@@ -41,7 +41,7 @@ For all of the subsequent requests, you will need to set the following two heade
 Copy the index schema returned into the Body and change the request to be a POST with the following request structure.
 
 ```
-POST  https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
+POST  https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
 ```
 
 Take the resulting content returned and copy it to the body of the requests.  This will allow us to use this as the current schema.  
