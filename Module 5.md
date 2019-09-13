@@ -18,6 +18,8 @@ Objective: Get familiar with the [Knowledge Mining solution accelerator](https:/
   "GraphFacet": "diseases"
 ```
 
+**Importan Note:** While this tutorial is optimizing for efficiency of allowing you to see results, and investigate the code, please note that entering your credentials into code is not a good practice to follow. We recommend you use a service like [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to do this.
+
 3. Set Startup Project:
  
  ![](images/setstart.png)
