@@ -1,7 +1,7 @@
 
 # Module 1: Using Azure Portal to Create Your Index - No Code Required
 
-This module uses the Azure Portal to create your first Azure Search index wihtout writing any code.  Following these steps you will: ingest a set of files (clinical-trials), extract both structured and unstructured text from those files, and index their content and learn how to query your new index.  Finally, we'll use the Azure Portal to quickly build out the new (preview) capability of the Knowledge Store, which we'll explore in greater detail in Module 5.
+This module uses the Azure Portal to create your first Azure Search index without writing any code.  Following these steps you will: ingest a set of files (clinical-trials), extract both structured and unstructured text from those files, and index their content and learn how to query your new index.  Finally, we'll use the Azure Portal to quickly build out the new (preview) capability of the Knowledge Store, which we'll explore in greater detail in Module 5.
 
 The instructions that follow assume that you have completed all of the pre-requisites found in the [ReadMe](https://github.com/cynotebo/KM-Workshop/blob/master/README.md) to this lab and have provisioned all of the necessary resources to your Azure subscription.  If you have not already completed these steps, you will need to do so prior to moving forward.
 
