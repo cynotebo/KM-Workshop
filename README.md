@@ -11,7 +11,7 @@ Please make sure you fulfill the following pre-requisites before starting the wo
 4. **Create** an [Azure Storage Account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal). Make sure this is a *Standard* tier, not Premium. 
 5.	In the Azure storage account, **create** an [Azure Storage resource (Blob) container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) called *clinical-trials-small*.
 6. **Unzip and copy** the clinical trials files from [clinical-trials-small.zip](./data) in the /data folder of this repository to the newly created clinical-trials-small container.
-7.	**Create** an [Azure Search](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal) resource (We recommend the Basic Tier at a minimum).
+7.	**Create** an [Azure Search](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal) resource. (A Free Tier should be sufficient for this workshop).
 [Learn more](https://docs.microsoft.com/en-us/azure/search/search-sku-tier)
 
 8.	**Create** a [Cognitive Services resource](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows).
