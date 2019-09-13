@@ -97,7 +97,7 @@ In this step, you are designing your Azure Search index.  This is an imporant an
  - Make sure all the field are **retrievable**. 
  - Make sure that the locations field is **retrievable / facetable / filterable / searchable**.
  - Set **Microsoft-English** as the *Analyzer* for all fields.
- - Select **Suggester** for all fields.
+ - Select **Suggester** for tirals, metadata_author, metadata_title and locations
  - Optional: You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
 
  ![](images/indexdef.png)
