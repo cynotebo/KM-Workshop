@@ -13,12 +13,13 @@ We will now create a data source called *clinical-trials-small* that will be use
 
  ![](images/importdata.png)
  
-In the drop down for **Existing data source**, choose **Azure Blob Storage**.
+In the drop down for **Data Source**, choose **Azure Blob Storage**.
 
 ![](images/datasource.png)
  
-2. Name your Index *clinical-trails-small*
-+ **Data to Extract** set to *Content and Metadata*
+2. Name your data source *clinical-trails-small*.
+
+2. Set **Data to Extract** to *Content and Metadata*
 3. Click on **Choose an existing connection** and select your Azure Storage Account. 
 
  
