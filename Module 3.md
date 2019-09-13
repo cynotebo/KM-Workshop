@@ -30,9 +30,10 @@ The first change we will make is to add two new fields.  The first one, called "
 
 We can first retrieve the current index schema by opening Postman and making the following GET request:
 GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
+
 Headers:
-api-key: [Enter Admin API Key from Azure Search portal]
-Content-Type: application/json
+* api-key: [Enter Admin API Key from Azure Search portal]
+* Content-Type: application/json
 
 ![](images/get-index-schema.png)
 
@@ -41,8 +42,8 @@ Copy the index schema returned into the Body and change the request to be a POST
 POST: https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
 
 Headers:
-api-key: [Enter Admin API Key from Azure Search portal]
-Content-Type: application/json
+* api-key: [Enter Admin API Key from Azure Search portal]
+* Content-Type: application/json
 
 Update the body and add the following two new fields.
 
