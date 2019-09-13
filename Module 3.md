@@ -29,8 +29,9 @@ Sometimes the portal makes it easy to make an edit. Or we could do it programmat
 The first change we will make is to add two new fields.  The first one, called "diseases" will simply hold a collection of diseases extracted from the text.  The second field, called "diseasesPhonetic" will also hold the diseases extracted, however, it will use something called a Phonetic analyzer.  This is one of the many Custom Analyzers that Azure Search makes available, to allow you to search for words that sounds phonetically similar.  We will talk about this in much more detail later.
 
 We can first retrieve the current index schema by opening Postman and making the following GET request:
+```
 GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
-
+```
 Headers:
 * api-key: [Enter Admin API Key from Azure Search portal]
 * Content-Type: application/json
@@ -39,7 +40,9 @@ Headers:
 
 Copy the index schema returned into the Body and change the request to be a POST with the following request structure.
 
-POST: https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
+```
+POST  https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
+```
 
 Headers:
 * api-key: [Enter Admin API Key from Azure Search portal]
@@ -104,7 +107,9 @@ Now let’s modify the skillset to incorporate the disease extractor we built in
 
 First, let’s inspect what our skillset definition looks like. Bring up POSTMAN, and issue this request:
 
-GET https://{name of your service}.search.windows.net/skillsets/clinical-trials-small?api-version=2019-05-06-Preview
+```
+GET  https://{name-of-your-service}.search.windows.net/skillsets/clinical-trials-small?api-version=2019-05-06-Preview
+```
 
  ![](images/postman.png)
 
@@ -135,7 +140,7 @@ Paste the response we got from the GET request, and add the additional skill.
 To get the URI, you will need to get it from the published skill you tested in module 2, but this is what it looked like for my skill…
 
 ```
- {
+         {
             "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
             "name": "diseases",
             "description": "Disease Extraction Skill",
@@ -159,11 +164,72 @@ To get the URI, you will need to get it from the published skill you tested in m
             ]
         }
 ```
+###  Add a new record to the Shaper Skill, and add a new Table Projection
 
-####	Modify the table projections to include this new field, as shown below:
+#### Add a new diseases input into the Shaper Skill.
 
 ```
-        "projections": [
+        {
+            "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+            "name": "#4",
+            "description": null,
+            "context": "/document",
+            "inputs": [
+            	{
+                    "name": "diseases",
+                    "sourceContext": "/document/diseases/*",
+                    "inputs": [
+                        {
+                            "name": "disease",
+                            "source": "/document/diseases/*"
+                        }
+                    ]
+                },
+                {
+                    "name": "lastUpdatePosted",
+                    "source": "/document/lastUpdatePosted",
+                    "sourceContext": null,
+                    "inputs": []
+                },
+...
+```
+Remember that *document/diseases* refers to an array of strings, something like this:
+```
+"document/disases": ["heart failure", "morquio", ...]
+```
+and */document/diseases/** refers to the each of the members of that element -- each of those strings.
+
+This skill is shaping a new complex object called *tableprojection* that will have many members.
+You have just added a new member to it called *diseases*. 
+
+Since the "sourceContext" for this new member is *"/document/diseases/\*"* , the new member itself will be an array of objects. Each of these objects will have a single member called *disease* with the name of each disease. 
+
+It's json representation would look something like this:
+
+```
+"document/tableprojection" :
+{
+	"lasUptdatePosted": "August 10, 2017",
+	"diseases" : [
+	    {
+	        "disease": "heart failure"
+            },
+	    {
+	        "disease": "morquio"
+            },
+	    ...
+	]
+}
+```
+
+#### Modify the table projections to include this new field, as shown below:
+
+Some tools like PowerBI know how to ingest tables and databases better than if we fed it a bunch of JSON objects.  Now that we have an object with the shape that we want, we will **project** it into a set of tables that will be correlated.
+
+Let's add one more table to the list for our new diseases member. 
+
+```
+         "projections": [
             {
                 "tables": [
                     {
@@ -180,38 +246,42 @@ To get the URI, you will need to get it from the published skill you tested in m
                         "sourceContext": null,
                         "inputs": []
                     },
-                    {
-                        "tableName": "diseases",
-			"generatedKeyName": "Diseaseid",
-                        "sourceContext": "/document/diseases/*",
-                        "inputs": [
-                        	{
-                            	"source": "/document/diseases/*",
-                            	"name": "disease"
-                        	}
-                        ]
-                    }
-                ],  
-	        "objects": []
+		    {
+			"tableName": "diseases",
+                    	"generatedKeyName": "Diseaseid",
+                    	"source": "/document/tableprojection/diseases/*",
+                    	"sourceContext": null,
+                        "inputs": []
+                	}
+                ],
+                "objects": []
             }
-        ]
 ```
+When we do this, each disease extracted will be given a unique identifier (*Diseaseid*). Since "/document/tableprojection/diseases/\*" is a child of "/document/tableprojection", the diseases table will automatically also get column called "Documentid".
 
-####	After you have made both changes, complete the PUT request.
+After you have made both changes, complete the PUT request.
 
-*Note that you can create, get, edit and delete each of the resources using REST APIs, just like we did with the skillset*.
+```
+PUT https://{your-service-name-goes-here}.search.windows.net/skillsets/clinical-trials-small?api-version=2019-05-06-Preview
+```
+It is important that you use version 2019-05-06*-Preview* because the knowlege store projections are still in Preview mode.
 
-Now we’ll follow a similar process to get and modify the Indexer. 
+*Note that you can create, get, edit and delete each of the resources (index, data source, indexer, skillset) using REST APIs, just like you did with the skillset*.
 
-The Indexer is the element that glues everything together. We’ll have it map this new element of the tree to our index.
+### Update the Output Field Mappings in the Indexer
 
-Add this **outputFieldMapping to the indexer**. This will specify where in what index field to store the diseases we just extracted. Make sure to do this in the output field mappings and not just on field Mappings. Field Mappings occur before enrichment, and output field mappings occurs post enrichment.
+Now we’ll follow a similar process to get and modify the Indexer.  The Indexer is the element that glues everything together. 
+
+Add this **outputFieldMapping to the indexer**. This will specify where in the index we should store the diseases we just extracted. Make sure to do this in the *output field mappings* and not on the *field mappings*. *Field mappings* occur before enrichment, and *output field mappings* occurs post enrichment.
 
 Do a GET and then a PUT with
-
-https://kmworkshop.search.windows.net/indexers/clinical-trials-small?api-version=2019-05-06
+```
+https://{your-service-name-goes-here}.search.windows.net/indexers/clinical-trials-small?api-version=2019-05-06
+```
 
 ```json
+    "outputFieldMappings": [
+       ...,
        {
             "sourceFieldName": "/document/diseases",
             "targetFieldName": "diseases",
@@ -222,8 +292,10 @@ https://kmworkshop.search.windows.net/indexers/clinical-trials-small?api-version
             "targetFieldName": "diseasesPhonetic",
             "mappingFunction": null
         },
+	...
  ```
 
+This will map the diseases into two distinct fields, so that we can assign different analyzers to each of them.
 
 Now, let’s reprocess documents. Go to the portal to **RESET** your Indexer and re **RUN** it.
 
