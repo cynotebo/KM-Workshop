@@ -159,12 +159,12 @@ Next, let's filter the results to documents that refer to Morquio and have a Loc
 GET https://[searchservice].search.windows.net/indexes/clinical-trials-small/docs?search=morquio&$select=metadata_title,locations&$filter=locations/any(location: location eq 'Emory University') 
 ```
 
-As a final query, we will use the autocomplete capability to suggest terms that match what a user types.  You have likely seen this in search boxes where users start typing and the system quickly suggests potential matches:
+As a final query, we will use the autocomplete capability to suggest terms that match what a user types.  You have likely seen this in search boxes where users start typing and the system quickly suggests potential matches.  Notice how this request is a POST as opposed to a GET.
 
 ```
-GET https://[searchservice].search.windows.net/indexes/clinical-trials-small/docs/autocomplete?api-version=2019-05-06
+POST https://[searchservice].search.windows.net/indexes/clinical-trials-small/docs/autocomplete?api-version=2019-05-06
 ```
-
+Set the body of the reqest as "raw" and include:
 ```json
 {
    "fuzzy": true,
