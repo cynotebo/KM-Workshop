@@ -55,7 +55,8 @@ Name your skillset: *clinical-trials-small*
 
 3. Make sure to select the **OCR enrichment** to extract **merged_content** field.  
 
-+ Now we can apply an enrichment to the merged_content field to extract the **locations** (lowercase 'l').  For consistency’s sake, let’s leave the field name locations. 
++ Now we can apply an enrichment to the merged_content field to extract the locations.
+Change the name of the generated field to be **locations** with a lowercase 'l'.  For consistency’s sake, let’s leave the field name locations. 
  
 + Leave all of the other enrichment boxes blank at this time as we will add in additional skills later in the lab.
 
@@ -89,15 +90,15 @@ We're going to go ahead and create the Knowledge Store now through the Azure Por
 ## Index Definition
 In this step, you are designing your Azure Search index.  This is an imporant and powerful part of the index build process as you select they types of Analyzer(s) you want to use and make determimations on features such as which fields and data will be retrievable, filterable, sortable, and searchable. (Liam to perhaps add some additional content here)
 
-1. Give your index a name like *clinical-trails-index*
+1. Give your index a name like *clinical-trials-index*
 2. Leave **Key** as the default option
 3. Under **Suggester name** add sg and set **Search mode** to *analyzingInfixMatching*
 4.	In the index definition fields:
 
  - Make sure all the field are **retrievable**. 
  - Make sure that the locations field is **retrievable / facetable / filterable / searchable**.
- - Set **Microsoft-English** as the *Analyzer* for all fields.
- - Select **Suggester** for tirals, metadata_author, metadata_title and locations
+ - Set **English-Microsoft** as the *Analyzer* for all searchable fields since the content is in English.
+ - Select **Suggester** for trials, metadata_author, metadata_title and locations
  - Optional: You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
 
  ![](images/indexdef.png)
