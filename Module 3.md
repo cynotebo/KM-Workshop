@@ -31,6 +31,8 @@ Let’s add a new field call diseases of type **Collection(Edm.String)** from th
  
 The first change we will make is to add two new fields.  The first one, called "diseases" will simply hold a collection of diseases extracted from the text.  The second field, called "diseasesPhonetic" will also hold the diseases extracted, however, it will use something called a Phonetic analyzer.  This is one of the many Custom Analyzers that Azure Search makes available, to allow you to search for words that sounds phonetically similar.  We will talk about this in much more detail later.
 
+![](images/get-index-schema.png)
+
 POST: https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
 
 Headers:
@@ -38,252 +40,6 @@ api-key: [Enter Admin API Key from Azure Search portal]
 Content-Type: application/json
 
 ```json
-{
-  "name": "clinical-trials-small",
-  "fields": [
-    {
-      "name": "content",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": true,
-      "sortable": false,
-      "analyzer": "en.microsoft",
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "lastUpdatePosted",
-      "type": "Edm.DateTimeOffset",
-      "facetable": true,
-      "filterable": true,
-      "retrievable": true,
-      "sortable": true,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "trials",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": false,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_storage_content_type",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": false,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_storage_size",
-      "type": "Edm.Int64",
-      "facetable": false,
-      "filterable": false,
-      "retrievable": true,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_storage_last_modified",
-      "type": "Edm.DateTimeOffset",
-      "facetable": false,
-      "filterable": false,
-      "retrievable": true,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_storage_content_md5",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": false,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_storage_name",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": false,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_storage_path",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": true,
-      "retrievable": true,
-      "searchable": false,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_content_type",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": false,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_language",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": false,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_author",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": false,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "metadata_title",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": false,
-      "sortable": false,
-      "analyzer": null,
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "Locations",
-      "type": "Collection(Edm.String)",
-      "facetable": false,
-      "filterable": true,
-      "retrievable": true,
-      "searchable": true,
-      "analyzer": "en.microsoft",
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "merged_content",
-      "type": "Edm.String",
-      "facetable": false,
-      "filterable": false,
-      "key": false,
-      "retrievable": true,
-      "searchable": true,
-      "sortable": false,
-      "analyzer": "en.microsoft",
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "text",
-      "type": "Collection(Edm.String)",
-      "facetable": false,
-      "filterable": false,
-      "retrievable": true,
-      "searchable": true,
-      "analyzer": "en.microsoft",
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
-    {
-      "name": "layoutText",
-      "type": "Collection(Edm.String)",
-      "facetable": false,
-      "filterable": false,
-      "retrievable": true,
-      "searchable": true,
-      "analyzer": "standard.lucene",
-      "indexAnalyzer": null,
-      "searchAnalyzer": null,
-      "synonymMaps": [],
-      "fields": []
-    },
 {
 	"name": "diseases",
 	"type": "Collection(Edm.String)",
@@ -312,25 +68,11 @@ Content-Type: application/json
 	"analyzer": "my_phonetic",
 	"synonymMaps": []
 }
-],
-  "suggesters": [
-    {
-      "name": "sg",
-      "searchMode": "analyzingInfixMatching",
-      "sourceFields": [
-        "content",
-        "trials",
-        "metadata_author",
-        "metadata_title",
-        "Locations"
-      ]
-    }
-  ],
-  "scoringProfiles": [],
-  "defaultScoringProfile": "",
-  "corsOptions": null,
+```
+
+```json
   "analyzers": [
-     {"name":"my_phonetic","@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer","tokenizer":"microsoft_language_tokenizer","tokenFilters": [ "lowercase", "asciifolding", "phonetic_token_filter" ]}
+    {"name":"my_phonetic","@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer","tokenizer":"microsoft_language_tokenizer","tokenFilters": [ "lowercase", "asciifolding", "phonetic_token_filter" ]}
   ],
   "tokenFilters":[  
   {  
@@ -338,8 +80,6 @@ Content-Type: application/json
 	  "@odata.type":"#Microsoft.Azure.Search.PhoneticTokenFilter",  
 	  "encoder":"doubleMetaphone"
   }],
-  "charFilters": [],
-  "tokenizers": [],
 }
 ```
 
