@@ -49,7 +49,9 @@ Take the resulting content returned and copy it to the body of the requests.  Th
 Next update this copied content by adding a new field:
 
 ```json
-{
+"fields": [
+   ...,
+   {
 	"name": "diseases",
 	"type": "Collection(Edm.String)",
 	"searchable": true,
@@ -62,7 +64,9 @@ Next update this copied content by adding a new field:
 	"searchAnalyzer": null,
 	"analyzer": "en.microsoft",
 	"synonymMaps": []
-}
+   },
+   ...
+]
 ```
 
 Change the request a GET to a PUT and click Send to update the index schema.
@@ -253,11 +257,6 @@ https://{your-service-name-goes-here}.search.windows.net/indexers/clinical-trial
        {
             "sourceFieldName": "/document/diseases",
             "targetFieldName": "diseases",
-            "mappingFunction": null
-        },
-        {
-            "sourceFieldName": "/document/diseases",
-            "targetFieldName": "diseasesPhonetic",
             "mappingFunction": null
         },
 	...
