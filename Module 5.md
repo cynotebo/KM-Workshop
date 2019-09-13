@@ -4,13 +4,16 @@ In this module we are going to cover two advanced search topics:
 * Custom Analyzers 
 * Scoring Profiles
 
-We briefly touched on custom analyzers in the previous module, however we are going to take a closer look at these and how to leverage it through search queries.  Scoring Profiles is an important topic because it allows you to have a high level of control over the search ranking process which is important to ensure the search results are well suited to the needs of your users and your business.
-
 ## Custom Analyzers
 
-In the previous module, we created an index that contained a field called customPhonetic which leverages one of the available Token Filters called the PhoneticTokenFilter.  The token filter has the ability to take search terms provided by the user and reduce them to a value that can be compared to within the index.  Let's take an example.  Imagine we had a disease in the index called "Gaucher's Disease", but a physician who wanted to learn more about this disease tried to search for it as "Gowchers Diseases".  There is a capability within Azure Search to do fuzzy matching that would allow you to handle simple spelling mistakes, however this example is far more than a simple spelling mistake.  
+In the previous module, we created an index that contained a field called diseases which allowed us to not only search this field, but also facet (categorize documents) and filter documents based on whether they contain specific diseases.  One of the challenging things with diseases is they are often really hard to spell.  Take the rare disease "mucopolysaccharidosis".  You could image that when people search for this, they could do a really poor job of spelling it.  Perhaps they might type "mukopolisakaridosis".  Although search allows you to handle [simple spelling mistakes](https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax#bkmk_fuzzy
+), this is far more than a simple spelling mistake. From a user perspective, it would be incredibly frustrating to get 0 results.  Luckily there are ways that we can accomodate this through the use of custom analyzers.  Specifically what we will be creating is a "Phonetic" [custom analyzer](https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers) that allows the search engine to match on words that sounds phonetically similar.  That would allow users to type "mukopolisakaridosis", yet find matches where the diseases stored is "mucopolysaccharidosis".  
 
-There are various phoentic encoders that encode words in different ways.  The one I chose is called doubleMetaphone and this encodes both Gaucher's and Gowchers to a code of KXRS.  Since it is stored in the field as KXRS, when someone searches for either Gaucher's or Gowchers, they both get encoded to the same value and as a result you get a match.
+You might imagine numerous examples of where phonetic search could help including:
+* People names (for example Cavanagh vs. Kavanaugh)
+* Audio Transcription Mistakes (for examples SQL being transcribed as sequel)
+
+Azure Search provides various phoentic encoders that will encode words in different ways.  The one we will use is called doubleMetaphone and this encodes both mukopolisakaridosis and mucopolysaccharidosis to a code of MKPL.  Since it is stored in the index as MKPL, when someone searches for either mukopolisakaridosis or mucopolysaccharidosis, they both get encoded to the same value and as a result you get a match.
 
 You can validate what this encoding looks like by executing the following two requests using the Azure Search Analyze API against your search index and the phonetic analyzer "my_phonetic" that was created in the previous module.:
 
@@ -18,7 +21,7 @@ You can validate what this encoding looks like by executing the following two re
 POST: https://[search service].search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
 BODY:
 {
-  "text": "Gaucher's",
+  "text": "mucopolysaccharidosis",
   "analyzer": "my_phonetic"
 }
 ```
@@ -36,9 +39,9 @@ Notice how both result in a token with the value: KXRS.
 
 ```json
 {
-   "token": "KXRS",
+   "token": "MKPL",
    "startOffset": 0,
-   "endOffset": 8,
+   "endOffset": 21,
    "position": 0
 }
 ```
