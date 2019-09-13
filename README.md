@@ -10,7 +10,7 @@ Please make sure you fulfill the following pre-requisites before starting the wo
 4. Create a resource group for this workshop where you will add each of the resources you will create in the next steps.
 4. **Create** an [Azure Storage Account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal). Make sure this is a *Standard* tier, not Premium. 
 5.	In the Azure storage account, **create** an [Azure Storage resource (Blob) container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) called *clinical-trials-small*.
-6. **Unzip and copy** the clinical trials files from clinical-trials-small.zip in the /data folder of this repository to the newly created clinical-trials-small container.
+6. **Unzip and copy** the clinical trials files from [clinical-trials-small.zip](./data) in the /data folder of this repository to the newly created clinical-trials-small container.
 7.	**Create** an [Azure Search](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal) resource (We recommend the Basic Tier at a minimum).
 [Learn more](https://docs.microsoft.com/en-us/azure/search/search-sku-tier)
 
