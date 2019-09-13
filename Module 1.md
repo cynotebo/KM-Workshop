@@ -173,4 +173,4 @@ Set the body of the reqest as "raw" and include:
    "autocompleteMode": "twoTerms"
 }
 ```
-Notice how the results include potential phrases that would match hea*.  
+Notice how this request uses a suggesterName called "sg".  You will recall that when you configured the index, you selected some columns to be used to power these autocompelte requests.  
