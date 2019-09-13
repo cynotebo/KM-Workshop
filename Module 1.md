@@ -7,35 +7,34 @@ The instructions that follow assume that you have completed all of the pre-requi
 
 ## Using the Portal Import Data Flow:
 
-We will now create a data source called *clinical-trials-small* that will be used to load and index the data.
 
-1. Navigate to your search service, and click the **Import Data** button. This will launch the Import Data Wizard.
+1. Navigate to your search service, and click the **Import Data** button. This will launch the Import Data Wizard which will guide you through the steps necessary to ingest your data, enrich it and create a search indexer.
 
- ![](images/importdata.png)
+   ![](images/importdata.png)
  
-In the drop down for **Data Source**, choose **Azure Blob Storage**.
+1. As part of the Import Data Wizard, in the **Connect to your data** tab, you can enter the information necessary to connect to your data source.
 
-![](images/datasource.png)
++ In the drop down for **Data Source**, choose *Azure Blob Storage*.
+
++ **Name** your data source *clinical-trails-small*.
+
++ Set **Data to Extract** to *Content and Metadata*
+
++ Set the **Connection String** to 
+   ```
+   ContainerSharedAccessUri=https://kmworkshop.blob.core.windows.net/clinical-trials-small?st=2019-09-13T22%3A58%3A18Z&se=2020-09-14T22%3A58%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=M7MPfuxZvVvBkf0Jgg%2BvKWyB49RFYlGNhQ4%2F1nIJ9DU%3D
+
+   ```
+   This is a read-only connection string to a container with about a hundred clinical trials.
  
-2. Name your data source *clinical-trails-small*.
+   Your screen should now look like this:
 
-2. Set **Data to Extract** to *Content and Metadata*
-3. Click on **Choose an existing connection** and select your Azure Storage Account. 
+   ![](images/chooseconnection.png)
 
- 
- ![](images/chooseconnection.png)
- 
-3. Select the clinical-trials-small container.
-
-![](images/selectcontainer.png)
-
-Your screen should now look like this:
-
-![](images/connectblob.jpg)
-
-4. Now click **Next** to begin the steps of applying skillsets to your index.
++ Now click **Next** to apply cognitive skills to your data.
 
 ## Skillset
+
 In Azure Search, we call extraction and enrichment steps cognitive skills, which are combined into a skillset referenced during indexing.  In this exercise, you will be learning how to use the [built-in skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills) through the Azure Portal.  In a later module, we will show you how to attach these skills programattically and how to build your own [custom skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface). 
 
 In the next three steps, you will be working through the three drop-down arrows presented: 
