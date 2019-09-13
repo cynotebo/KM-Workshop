@@ -24,20 +24,27 @@ Let’s change the index definition. Please be very careful because you can only
 
 ![](images/jsonportal.png)
 
-Sometimes the portal makes it easy to make an edit. Or we could do it programmatically.
-Let’s add a new field call diseases of type **Collection(Edm.String)** from the portal and see how what the definition looks like afterwards. Make sure it’s **Retrievable/Filterable/Facetable/Searchable**
- 
- ![](images/indexdef2.png)
- 
+Sometimes the portal makes it easy to make an edit. Or we could do it programmatically, which we will do below.
+
 The first change we will make is to add two new fields.  The first one, called "diseases" will simply hold a collection of diseases extracted from the text.  The second field, called "diseasesPhonetic" will also hold the diseases extracted, however, it will use something called a Phonetic analyzer.  This is one of the many Custom Analyzers that Azure Search makes available, to allow you to search for words that sounds phonetically similar.  We will talk about this in much more detail later.
 
+We can first retrieve the current index schema by opening Postman and making the following GET request:
+GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
+Headers:
+api-key: [Enter Admin API Key from Azure Search portal]
+Content-Type: application/json
+
 ![](images/get-index-schema.png)
+
+Copy the index schema returned into the Body and change the request to be a POST with the following request structure.
 
 POST: https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
 
 Headers:
 api-key: [Enter Admin API Key from Azure Search portal]
 Content-Type: application/json
+
+Update the body and add the following two new fields.
 
 ```json
 {
@@ -70,6 +77,8 @@ Content-Type: application/json
 }
 ```
 
+Update the existing analyzer and tokenFilters sections as follows:
+
 ```json
   "analyzers": [
     {"name":"my_phonetic","@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer","tokenizer":"microsoft_language_tokenizer","tokenFilters": [ "lowercase", "asciifolding", "phonetic_token_filter" ]}
@@ -82,6 +91,7 @@ Content-Type: application/json
   }],
 }
 ```
+Send the request to update the index.
 
 One thing to note from the above is that this phonetic analyzer uses the [doubleMetaphone](https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers#property-reference) encoder.  There are numerous differnt types of phonetic encoding that you could try if this does not fit your needs.
 
