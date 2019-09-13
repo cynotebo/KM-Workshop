@@ -339,7 +339,7 @@ POST: https://[searchservice].search.windows.net/indexes/clinical-trials-small?a
 }
 ```
 
-One thing to note from the above is that this phonetic analyzer uses the (doubleMetaphone)[https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers#property-reference] encoder.  There are numerous differnt types of phonetic encoding that you could try if this does not fit your needs.
+One thing to note from the above is that this phonetic analyzer uses the [doubleMetaphone](https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers#property-reference) encoder.  There are numerous differnt types of phonetic encoding that you could try if this does not fit your needs.
 
 +	**SAVE** the changes to your skillset
  
