@@ -33,7 +33,7 @@ Your screen should now look like this:
 
 ![](images/connectblob.jpg)
 
-4. Now click **Next: Add cognitive search (Optional)** to begin the steps of applying skillsets to your index.
+4. Now click **Next** to begin the steps of applying skillsets to your index.
 
 ## Skillset
 In Azure Search, we call extraction and enrichment steps cognitive skills, which are combined into a skillset referenced during indexing.  In this exercise, you will be learning how to use the [built-in skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills) through the Azure Portal.  In a later module, we will show you how to attach these skills programattically and how to build your own [custom skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface). 
@@ -95,11 +95,11 @@ In this step, you are designing your Azure Search index.  This is an imporant an
 3. Under **Suggester name** add sg and set **Search mode** to *analyzingInfixMatching*
 4.	In the index definition fields:
 
- - Make sure all the field are **retrievable**. 
+ - Make sure all the fields are **retrievable**. 
  - Make sure that the locations field is **retrievable / facetable / filterable / searchable**.
  - Set **English-Microsoft** as the *Analyzer* for all searchable fields since the content is in English.
  - Select **Suggester** for trials, metadata_author, metadata_title and locations
- - Optional: You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
+ - You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
 
  ![](images/indexdef.png)
 
