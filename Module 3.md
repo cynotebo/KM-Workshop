@@ -31,7 +31,7 @@ Let’s add a new field call diseases of type **Collection(Edm.String)** from th
  
 The first change we will make is to add two new fields.  The first one, called "diseases" will simply hold a collection of diseases extracted from the text.  The second field, called "diseasesPhonetic" will also hold the diseases extracted, however, it will use something called a Phonetic analyzer.  This is one of the many Custom Analyzers that Azure Search makes available, to allow you to search for words that sounds phonetically similar.  We will talk about this in much more detail later.
 
-POST: https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06
+POST: https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
 
 ```json
 {
