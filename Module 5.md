@@ -15,10 +15,71 @@ You might imagine numerous examples of where phonetic search could help includin
 
 Azure Search provides various phoentic encoders that will encode words in different ways.  The one we will use is called doubleMetaphone and this encodes both mukopolisakaridosis and mucopolysaccharidosis to a code of MKPL.  Since it is stored in the index as MKPL, when someone searches for either mukopolisakaridosis or mucopolysaccharidosis, they both get encoded to the same value and as a result you get a match.
 
+### Adding a Phonetic field to the Index
+Let's modify the index like we did in the previous module to add a new field called diseasesPhonetic which makes use of the Phonetic Custom Analyzer.
+
+Go back to your Postman application and bring up the POST request where you last updated the index with the diseases field.  If you do not have it there, you should be able to find it in the History requests.
+
+Modify the POST request by adding the following field:
+```json
+"fields": [
+   ...,
+ {
+	"name": "diseasesPhonetic",
+	"type": "Collection(Edm.String)",
+	"searchable": true,
+	"filterable": true,
+	"retrievable": true,
+	"sortable": false,
+	"facetable": true,
+	"key": false,
+	"indexAnalyzer": null,
+	"searchAnalyzer": null,
+	"analyzer": "my_phonetic",
+	"synonymMaps": []
+}...
+]
+```
+Notice the field uses an analyzer called "my_phonetic".  This will be the custom analyzer that we will need to create.  For this, find "analyzers": [] and replace it with:
+```json
+  "analyzers": [
+    {"name":"my_phonetic","@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer","tokenizer":"microsoft_language_tokenizer","tokenFilters": [ "lowercase", "asciifolding", "phonetic_token_filter" ]}
+  ],
+
+```
+
+Locate "tokenFilters": [] and replace it with:
+```json
+"tokenFilters":[  
+  {  
+	  "name":"phonetic_token_filter",  
+	  "@odata.type":"#Microsoft.Azure.Search.PhoneticTokenFilter",  
+	  "encoder":"doubleMetaphone"
+  }],
+```
+
+Since we are making incremental changes to the index schema we need to modify the POST request by adding:
+```
+&allowIndexDowntime=true
+```
+Hit send to update the index
+
+We need to update the Indexer so that it knows to take the diseases and also write it to this new field.  
+
+```json
+{
+            "sourceFieldName": "/document/diseases",
+            "targetFieldName": "diseasesPhonetic",
+            "mappingFunction": null
+        }
+```
+Hit send to update the indexer and go back to the portal to run the Indexer again.
+
+### Testing the Analyzer
 You can validate what this encoding looks like by executing the following two requests using the Azure Search Analyze API against your search index and the phonetic analyzer "my_phonetic" that was created in the previous module.:
 
 ```
-POST: https://[search service].search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
+POST: https://{name of your service}.search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
 BODY:
 {
   "text": "mucopolysaccharidosis",
@@ -27,7 +88,7 @@ BODY:
 ```
 and
 ```
-POST: https://[search service].search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
+POST: https://{name of your service}.search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
 BODY:
 {
   "text": "Gowchers",
