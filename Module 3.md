@@ -153,8 +153,11 @@ To get the URI, you will need to get it from the published skill you tested in m
                 }
             ]
         }
+```
 
 ####	Modify the table projections to include this new field, as shown below:
+
+```
         "projections": [
             {
                 "tables": [
@@ -167,12 +170,13 @@ To get the URI, you will need to get it from the published skill you tested in m
                     },
                     {
                         "tableName": "clinicalTrialsSmallEntities",
-                        "generatedKeyName": "Entitiesid",                        "source": "/document/tableprojection/Entities/*",
+                        "generatedKeyName": "Entitiesid",
+                        "source": "/document/tableprojection/Entities/*",
                         "sourceContext": null,
                         "inputs": []
                     },
                     {
-                        "name": "diseases",
+                        "tableName": "diseases",
                         "sourceContext": "/document/diseases/*",
                         "inputs": [
                         	{
@@ -180,10 +184,11 @@ To get the URI, you will need to get it from the published skill you tested in m
                             	"name": "disease"
                         	}
                         ]
-                	}
-                ],
-                "objects": []
-             }
+                    }
+                ],  
+	        "objects": []
+            }
+        ]
 ```
 
 ####	After you have made both changes, complete the PUT request.
