@@ -18,7 +18,7 @@ Please make sure you fulfill the following pre-requisites before starting the wo
 
   *Note - You need to create the Cognitive Services resource in the same region as you Azure Search resource*. 
 
-9.	**Install** [Visual Studio 2017](https://visualstudio.microsoft.com/) or later.
+9.	**Install** [Visual Studio 2017](https://visualstudio.microsoft.com/) or later. Make sure you can create ASP.Net websites with it.
 10. **Install** [Postman](https://www.getpostman.com/)
 11. **Install** [PowerBI desktop](https://powerbi.microsoft.com/en-us/desktop/).
 12. **Install** [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
