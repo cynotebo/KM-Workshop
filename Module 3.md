@@ -32,7 +32,7 @@ We can first retrieve the current index schema by opening Postman and making the
 ```
 GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
 ```
-Headers:
+For all of the subsequent requests, you will need to set the following two headers values:
 * api-key: [Enter Admin API Key from Azure Search portal]
 * Content-Type: application/json
 
@@ -44,11 +44,9 @@ Copy the index schema returned into the Body and change the request to be a POST
 POST  https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
 ```
 
-Headers:
-* api-key: [Enter Admin API Key from Azure Search portal]
-* Content-Type: application/json
+Take the resulting content returned and copy it to the body of the requests.  This will allow us to use this as the current schema.  
 
-Update the body and add the following two new fields.
+Next update this copied content by adding a new field:
 
 ```json
 {
@@ -64,40 +62,10 @@ Update the body and add the following two new fields.
 	"searchAnalyzer": null,
 	"analyzer": "en.microsoft",
 	"synonymMaps": []
-},
-{
-	"name": "diseasesPhonetic",
-	"type": "Collection(Edm.String)",
-	"searchable": true,
-	"filterable": true,
-	"retrievable": true,
-	"sortable": false,
-	"facetable": true,
-	"key": false,
-	"indexAnalyzer": null,
-	"searchAnalyzer": null,
-	"analyzer": "my_phonetic",
-	"synonymMaps": []
 }
 ```
 
-Update the existing analyzer and tokenFilters sections as follows:
-
-```json
-  "analyzers": [
-    {"name":"my_phonetic","@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer","tokenizer":"microsoft_language_tokenizer","tokenFilters": [ "lowercase", "asciifolding", "phonetic_token_filter" ]}
-  ],
-  "tokenFilters":[  
-  {  
-	  "name":"phonetic_token_filter",  
-	  "@odata.type":"#Microsoft.Azure.Search.PhoneticTokenFilter",  
-	  "encoder":"doubleMetaphone"
-  }],
-}
-```
-Send the request to update the index.
-
-One thing to note from the above is that this phonetic analyzer uses the [doubleMetaphone](https://docs.microsoft.com/en-us/azure/search/index-add-custom-analyzers#property-reference) encoder.  There are numerous differnt types of phonetic encoding that you could try if this does not fit your needs.
+Change the request a GET to a PUT and click Send to update the index schema.
 
 +	**SAVE** the changes to your skillset
  
