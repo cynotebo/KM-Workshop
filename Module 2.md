@@ -149,3 +149,9 @@ To create your own Azure Function:
 ![](images/function-url.png)
 
 7) Go back to Postman and replace the previous localhost request, with this new URL and press Send.  You should get the exact same result as above.
+
+## Azure Functions - Production vs Demo
+There are a number of items used above that are useful for development purposes, however not for production usage.  A few examples of this include:
+* Usage of code= parameters in the above Azure Function.  This is not a best practice, however, it is very convenient for development
+* We manually publised the function, however, in production scenarios it would be far more realistic to leverage a Continous Integration method of deployment
+* In the configuration of the function, we chose a consumption plan.  For production, you would want to take a closer look at usage, so that you can adjust the scale of the function, which very likely could be higher and might require a dedicated or scaled out environment.
