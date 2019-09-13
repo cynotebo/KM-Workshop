@@ -31,6 +31,7 @@ Select Account kind: *StorageV2 (general purpose v2)*
 
 ## Agenda
 
++ Module 0 - Pre-Requisites 
 + Module 1 - Using Azure Portal to Build a Search Index and Knowledge Store
 + Module 2 - Introduction to Custom Skills and Azure Functions
 + Module 3 - Learn the Object Model and Advanced Skills
