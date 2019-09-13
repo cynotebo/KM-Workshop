@@ -215,7 +215,7 @@ Let's add one more table to the list for our new diseases member.
                         "inputs": []
                     },
 		    {
-			"tableName": "diseases",
+			"tableName": "clinicalTrialsSmallDiseases",
                     	"generatedKeyName": "Diseaseid",
                     	"source": "/document/tableprojection/diseases/*",
                     	"sourceContext": null,
