@@ -1,6 +1,6 @@
 # Knowledge Mining Workshop
 
-Welcome to the Knowledge Mining workshop! 
+**Welcome to the Knowledge Mining workshop!** 
 
 During this lab, we will be exploring a data set that is comprised of anonymzed patient notes in PDF format.  This demo data set contains over 200 records and contains complex medical terms and disease information in an unstructured format - meaning that there is no easy way to search the data set for information or records pertains to a specific disease, like cirrhosis,  And worse yet, if (like the authors of this lab) you don't always accurately spell cirrhosis, you may have no way of ever finding the information you're looking for - structured or otherwise.
 
@@ -14,7 +14,7 @@ More concretely, you'll learn how to build an Azure Search Index and Knowledge S
 
 ## Agenda
 
-+ Module 0 - Pre-Requisites 
++ Module 0 - Pre-Requisites (*you must complete prior to moving on!*)
 + Module 1 - Using Azure Portal to Build a Search Index and Knowledge Store
 + Module 2 - Introduction to Custom Skills and Azure Functions
 + Module 3 - Learn the Object Model and Advanced Skills
