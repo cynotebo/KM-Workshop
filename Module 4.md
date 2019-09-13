@@ -15,7 +15,7 @@ There are various phoentic encoders that encode words in different ways.  The on
 You can validate what this encoding looks like by executing the following two requests using the Azure Search Analyze API against your search index and the phonetic analyzer "my_phonetic" that was created in the previous module.:
 
 ```
-GET: https://[search service].search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
+POST: https://[search service].search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
 BODY:
 {
   "text": "Gaucher's",
@@ -24,7 +24,7 @@ BODY:
 ```
 and
 ```
-GET: https://[search service].search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
+POST: https://[search service].search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
 BODY:
 {
   "text": "Gowchers",
