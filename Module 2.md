@@ -26,9 +26,9 @@ In the Solution Explorer, locate the project "CustomEntitySearch" under the **Te
 
 We are going to place our own dictionary of disease names into this file.    
 
-Copy words.csv files located in the /data folder of this project and replace the contents of this file with what is in the Visual Studio project.   
+Copy [words.csv](./data) files located in the /data folder of this project and replace the contents of this file with what is in the Visual Studio project.   
 
-  *NOTE: This is not a fully vetted dictionary, and there are many incorrect mentions of diseases, but it does have well over 200K phrases available for us to use and more than adequate for the purposes of this lab*.
+  *NOTE: This is a small dictionary that is not fully vetted but it is more than adequate for the purposes of this lab*.
 
 ## Walking through the Azure Function code
 
