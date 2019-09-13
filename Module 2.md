@@ -1,5 +1,9 @@
 # Visualizing the Results with a Demo FrontEnd
-Objective: Get familiar with the [Knowledge Mining solution accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) , and use it to create a front-end to visualize the search results.
+Now that you've built your Search index, we'll take a moment to build and deploy a simple web-page that will allow you to visualize your intial results.  We'll come back this view throughout the lab and take special note of how our search results change as we add additional features and capabilities.
+
+To get started with this exercise, we will be using and getting familiar with the [Knowledge Mining solution accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) to create our front-end experience.  This accelerator was published to provide developers with all of the steps and tools required to build a working minimally viable knowledge mining solution.  Take a few moments to note that it contains modules to deploy the required Azure resources, build custom skills and present results in a simple, but elegant front-end.  At the end of this lab, your results will look similar to this:
+
+![](images/results.png)
 
 ## 1. Clone the repository
 ```
