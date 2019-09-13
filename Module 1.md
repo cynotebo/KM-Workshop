@@ -138,20 +138,20 @@ Add a parameter &$count=true to determine that there are 8 documents that refer 
 gauchers&highlight=content&$count=true
 ```
 
-When we configured the Indexing of the content, we asked for Locations to be extracted from the content.  Let's take a look at this by searching for morquio diseaese and limiting the results to only return the metadata_title, Locations fields 
+When we configured the Indexing of the content, we asked for locations to be extracted from the content.  Let's take a look at this by searching for morquio diseaese and limiting the results to only return the metadata_title, locations fields 
 ```
-morquio&$select=metadata_title,Locations
+morquio&$select=metadata_title,locations
 ```
-Notice how the Locations field is a Collection (or array of strings) that includes all the Location names extracted from the content.
+Notice how the *locations* field is a Collection (or array of strings) that includes all the Location names extracted from the content.
 
-Let's try to group all of the Locations by using Faceting:
+Let's try to group all of the *locations* by using Faceting:
 ```
-morquio&$select=metadata_title,Locations&facet=Locations
+morquio&$select=metadata_title,locations&facet=locations
 ```
-We can see how the search results has added a list of the top Locations and how often they are found in documents that talk about Morquio.
+We can see how the search results has added a list of the top locations and how often they are found in documents that talk about Morquio.
 
 Finally, let's filter the results to documents that refer to Morquio and have a Location of "Emory University"
 ```
-morquio&$select=metadata_title,Locations&$filter=Locations/any(location: location eq 'Emory University') 
+morquio&$select=metadata_title,locations&$filter=locations/any(location: location eq 'Emory University') 
 ```
  
