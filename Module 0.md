@@ -1,11 +1,7 @@
-# Knowledge Mining Workshop
+# Pre-Requisites for Knowledge Mining Workshop
 
-Welcome to the Knowledge Mining workshop!  This training is meant to walk you through building out your own knowledge mining solution.  You'll learn how to build an Azure Search Index and Knowledge Store repository through the Azure Portal.  From there, we'll explore more advanced concepts in Azure Search, build custom skills to extend the solution and create a basic web page front end to visualize your search results.  Finally, you will build a PowerBI dashboard on top of your Knowledge Store to demonstrate how you can use your data store for data visualization and advanced analytics.  We have also included an Optional Module 7  which is a stand alone module that will walk y you through indexing data from an AzureSQL datasource.  We encourage you to walk through this module on your own time and review how this further extends the data available in your solution.
-
-Please make sure to complete all of  pre-requisites listed below before moving on, as you will not be able to complete the excercises in this lab without them.
-
-## Pre-Requisites
 Please make sure you fulfill the following pre-requisites before starting the workshop.
+
 1.	Have your own Azure account 
 2.	Be familiar [Azure Portal](https://portal.azure.com)
 3.	Make sure you can create Azure resources (including paid resources).
@@ -29,13 +25,3 @@ Select Account kind: *StorageV2 (general purpose v2)*
 12. **Install** [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
 
 
-## Agenda
-
-+ Module 0 - Pre-Requisites 
-+ Module 1 - Using Azure Portal to Build a Search Index and Knowledge Store
-+ Module 2 - Introduction to Custom Skills and Azure Functions
-+ Module 3 - Learn the Object Model and Advanced Skills
-+ Module 4 - Advanced Azure Search: Analyzers and Scoring Profiles
-+ Module 5 - Visualizing Your Results in a Web Page
-+ Module 6 - Analyzing Your Data with PowerBI
-+ Module 7 - Using Azure Search to index structured data
