@@ -69,12 +69,6 @@ Next update this copied content by adding a new field:
 ]
 ```
 
-Change the request a GET to a PUT and click Send to update the index schema.
-
-+	**SAVE** the changes to your skillset
- 
-![](images/savechanges.png)
-
 Now let’s modify the skillset to incorporate the disease extractor we built in Module 2.
 
 First, let’s inspect what our skillset definition looks like. Bring up POSTMAN, and issue this request:
