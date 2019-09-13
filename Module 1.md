@@ -50,7 +50,7 @@ This is the resource you created earlier as part of your intial lab set up and i
 
 ### Add enrichments
 
-    Name your skillset: *clinical-trials-small*
+Name your skillset: *clinical-trials-small*
 
 3. Make sure to select the **OCR enrichment** to extract **merged_content** field.  
 
