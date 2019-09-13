@@ -95,7 +95,9 @@ We’ll add a step to the enrichment pipeline that extracts diseases, we’ll de
 
 We’ll create a PUT request to edit the skillset.
 
+```
 PUT    https://{your-service-here}.search.windows.net/skillsets/clinical-trials-small?api-version=2019-05-06-Preview 
+```
 
 We’ll modify the skills list, and also add the diseases to our table projections.
 
