@@ -131,12 +131,16 @@ Search for references to "Gaucher's" disease and do hit highlighting of the cont
 ```
 gauchers&highlight=content
 ```
-Notice as you scroll through the results that the English - Microsoft Analyzer was able to pick up variations to this phrase such as "Gaucher" and "Gaucher's"
+Notice as you scroll through the results that the English-Microsoft Analyzer was able to pick up variations to this phrase such as "Gaucher" and "Gaucher's" and highlights them using default <em> </em> tags.
 
 Add a parameter &$count=true to determine that there are 8 documents that refer to "Gaucher's" disease:
 ```
 gauchers&highlight=content&$count=true
 ```
+
+The search explorer is useful for performing queries like this, however most developers want to use external tools to start working against the service.  For that reason, open Postman to perform the rest of the below search queries.  To set up the queries we will use set the Headers as:
+* api-key: [Enter Admin API Key from Azure Search portal]
+* Content-Type: application/json
 
 When we configured the Indexing of the content, we asked for locations to be extracted from the content.  Let's take a look at this by searching for morquio diseaese and limiting the results to only return the metadata_title, locations fields 
 ```
@@ -144,14 +148,29 @@ morquio&$select=metadata_title,locations
 ```
 Notice how the *locations* field is a Collection (or array of strings) that includes all the Location names extracted from the content.
 
-Let's try to group all of the *locations* by using Faceting:
+Let's try to group all of the *locations* by using Faceting.  Remember to update [searchservice] with the name of your search service.
 ```
-morquio&$select=metadata_title,locations&facet=locations
+GET https://[searchservice].search.windows.net/indexes/clinical-trials-small/docs?search=morquio&$select=metadata_title,locations&facet=locations
 ```
 We can see how the search results has added a list of the top locations and how often they are found in documents that talk about Morquio.
 
-Finally, let's filter the results to documents that refer to Morquio and have a Location of "Emory University"
+Next, let's filter the results to documents that refer to Morquio and have a Location of "Emory University"
 ```
-morquio&$select=metadata_title,locations&$filter=locations/any(location: location eq 'Emory University') 
+GET https://[searchservice].search.windows.net/indexes/clinical-trials-small/docs?search=morquio&$select=metadata_title,locations&$filter=locations/any(location: location eq 'Emory University') 
 ```
- 
+
+As a final query, we will use the autocomplete capability to suggest terms that match what a user types.  You have likely seen this in search boxes where users start typing and the system quickly suggests potential matches:
+
+```
+GET https://[searchservice].search.windows.net/indexes/clinical-trials-small/docs/autocomplete?api-version=2019-05-06
+```
+
+```json
+{
+   "fuzzy": true,
+   "search": "hea", 
+   "suggesterName": "sg", 
+   "autocompleteMode": "twoTerms"
+}
+```
+Notice how the results include potential phrases that would match hea*.  
