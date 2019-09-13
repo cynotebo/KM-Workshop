@@ -33,6 +33,10 @@ The first change we will make is to add two new fields.  The first one, called "
 
 POST: https://[searchservice].search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
 
+Headers:
+api-key: [Enter Admin API Key from Azure Search portal]
+Content-Type: application/json
+
 ```json
 {
   "name": "clinical-trials-small",
