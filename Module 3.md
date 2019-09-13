@@ -427,6 +427,7 @@ To get the URI, you will need to get it from the published skill you tested in m
                     },
                     {
                         "tableName": "diseases",
+			"generatedKeyName": "Diseaseid",
                         "sourceContext": "/document/diseases/*",
                         "inputs": [
                         	{
