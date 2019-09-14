@@ -60,8 +60,5 @@ Much of the UI is rendered dynamically by javascript. Some important files to kn
 
 2. **wwroot/js/details.js** - contains the code for rending the detail view once a result is selected
 
->>> 
-TODO: 
-Add more information on how the graph works.
->>>
+
 
