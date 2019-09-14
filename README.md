@@ -24,8 +24,8 @@ More concretely, you'll learn how to build an Azure Search Index and Knowledge S
 
 ## Agenda
 
-+ [Module 0 - Pre-Requisites](../blob/Module%200.md) (*you must complete prior to moving on!*)
-+ [Module 1 - Using Azure Portal to Build a Search Index and Knowledge Store](../blob/module%201.md)
++ [Module 0 - Pre-Requisites](../blob/master/Module%200.md) (*you must complete prior to moving on!*)
++ [Module 1 - Using Azure Portal to Build a Search Index and Knowledge Store](../blob/master/module%201.md)
 + [Module 2 - Introduction to Custom Skills and Azure Functions](./module%202.md)
 + [Module 3 - Learn the Object Model and Advanced Skills](./module%203.md)
 + [Module 4 - Advanced Azure Search: Analyzers and Scoring Profiles](./module%204.md)
