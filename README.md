@@ -24,11 +24,11 @@ More concretely, you'll learn how to build an Azure Search Index and Knowledge S
 
 ## Agenda
 
-+ Module 0 - Pre-Requisites (*you must complete prior to moving on!*)
-+ Module 1 - Using Azure Portal to Build a Search Index and Knowledge Store
-+ Module 2 - Introduction to Custom Skills and Azure Functions
-+ Module 3 - Learn the Object Model and Advanced Skills
-+ Module 4 - Advanced Azure Search: Analyzers and Scoring Profiles
-+ Module 5 - Visualizing Your Results in a Web Page
-+ Module 6 - Analyzing Your Data with PowerBI
-+ Module 7 - Using Azure Search to index structured data
++ [Module 0 - Pre-Requisites](./module%200.md) (*you must complete prior to moving on!*)
++ [Module 1 - Using Azure Portal to Build a Search Index and Knowledge Store](./module%201.md)
++ [Module 2 - Introduction to Custom Skills and Azure Functions](./module%202.md)
++ [Module 3 - Learn the Object Model and Advanced Skills](./module%203.md)
++ [Module 4 - Advanced Azure Search: Analyzers and Scoring Profiles](./module%204.md)
++ [Module 5 - Visualizing Your Results in a Web Page](./module%205.md)
++ [Module 6 - Analyzing Your Data with PowerBI](./module%206.md)
++ [Module 7 - Using Azure Search to index structured data](./module%207.md) (Optional)
