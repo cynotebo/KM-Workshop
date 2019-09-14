@@ -52,14 +52,14 @@ This is the resource you created earlier as part of your intial lab set up and i
 
 Name your skillset: *clinical-trials-small*
 
-3. Make sure to select the **OCR enrichment** to extract **merged_content** field.  
++ Make sure to select the **OCR enrichment** to extract **merged_content** field.  
 
 + Now we can apply an enrichment to the merged_content field to extract the locations.
 Change the name of the generated field to be **locations** with a lowercase 'l'.  For consistency’s sake, let’s leave the field name locations. 
  
 + Leave all of the other enrichment boxes blank at this time as we will add in additional skills later in the lab.
 
-![](images/enrichments.png)
+   ![](images/enrichments.png)
 
 
 ### Save enrichments to a knowledge store (Preview) 
@@ -90,34 +90,36 @@ We're going to go ahead and create the Knowledge Store now through the Azure Por
 In this step, you are designing your Azure Search index.  This is an imporant and powerful part of the index build process as you select they types of Analyzer(s) you want to use and make determimations on features such as which fields and data will be retrievable, filterable, sortable, and searchable. (Liam to perhaps add some additional content here)
 
 1. Give your index a name like *clinical-trials-index*
+
 2. Leave **Key** as the default option
+
 3. Under **Suggester name** add sg and set **Search mode** to *analyzingInfixMatching*
+
 4.	In the index definition fields:
+      + Make sure all the fields are **retrievable**. 
+      + Make sure that the locations field is **retrievable / facetable / filterable / searchable**.
+      + Set **English-Microsoft** as the *Analyzer* for all searchable fields since the content is in English.
+      + Select **Suggester** for trials, metadata_author, metadata_title and locations
+      + You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
 
- - Make sure all the fields are **retrievable**. 
- - Make sure that the locations field is **retrievable / facetable / filterable / searchable**.
- - Set **English-Microsoft** as the *Analyzer* for all searchable fields since the content is in English.
- - Select **Suggester** for trials, metadata_author, metadata_title and locations
- - You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
+      ![](images/indexdef.png)
 
- ![](images/indexdef.png)
+   5. Click on **Next: Create an indexer**.
 
-### **Click** on **Next: Create an indexer**.
+##  Indexer Definition
 
 1. Name the indexer *clinical-trials-small* .
 2. Set the **Schedule** to Once
 3. Click on the **Advanced options** drop down and note that that the index key is Base-64 encoded by default.
  
-![](images/indexer.png)
+   ![](images/indexer.png)
 
-4. Click on **Submit**
-
-Wait 2 or 3 minutes or so for the indexing to occur – then go check the status of your indexer on the portal.  
+4. Click on **Submit**. Then wait 2 or 3 minutes or so for the indexing to occur – then go check the status of your indexer on the portal.  
  
-![](images/chkstatus.png)
+   ![](images/chkstatus.png)
 
 
-![](images/chkstatus2.png)
+   ![](images/chkstatus2.png)
 
 ## Searching the Content
 Now that the content has been indexed, we can use the portal to test some search queries. Open the **Search explorer** and enter a search query such as "MPS" to allow us to find all document that refer to the disease MPS, and press "Search". Try adjusting the query with different phrases and terms to get an idea of the content.
