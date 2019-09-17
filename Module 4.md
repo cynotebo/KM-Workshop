@@ -38,10 +38,10 @@ For all of the subsequent requests, you will need to set the following two heade
 
 ![](images/get-index-schema.png)
 
-Copy the index schema returned into the Body and change the request to be a POST with the following request structure.
+Copy the index schema returned into the Body and change the request to be a PUT with the following request structure.
 
 ```
-POST  https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06&allowIndexDowntime=true
+PUT  https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
 ```
 
 Take the resulting content returned and copy it to the body of the requests.  This will allow us to use this as the current schema.  
