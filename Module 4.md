@@ -38,15 +38,7 @@ For all of the subsequent requests, you will need to set the following two heade
 
 ![](images/get-index-schema.png)
 
-Copy the index schema returned into the Body and change the request to be a PUT with the following request structure.
-
-```
-PUT  https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
-```
-
-Take the resulting content returned and copy it to the body of the requests.  This will allow us to use this as the current schema.  
-
-Next update this copied content by adding a new field:
+Copy the index schema returned into the Body. Update the copied content in the Body by adding a new field:
 
 ```json
 "fields": [
@@ -68,6 +60,12 @@ Next update this copied content by adding a new field:
    ...
 ]
 ```
+
+Change the request to be a PUT with the following request structure and send the request to update the index.
+
+```
+PUT  https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
+``` 
 
 Now let’s modify the skillset to incorporate the disease extractor we built in Module 2.
 
