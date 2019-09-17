@@ -38,7 +38,7 @@ For all of the subsequent requests, you will need to set the following two heade
 
 ![](images/get-index-schema.png)
 
-Copy the index schema returned into the Body. Update the copied content in the Body by adding a new field:
+Copy the index schema that was returned with the GET request into the Body. Update the copied content in the Body by adding a new field:
 
 ```json
 "fields": [
@@ -61,7 +61,7 @@ Copy the index schema returned into the Body. Update the copied content in the B
 ]
 ```
 
-Change the request to be a PUT with the following request structure and send the request to update the index.
+Change the request to be a PUT with the following request structure. Send the request to update the index.
 
 ```
 PUT  https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
