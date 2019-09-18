@@ -300,6 +300,8 @@ Body:
 Replace the [searchservice] with your search service and use your admin api key in the header.
 Note: The below skillset leverages a pre-existing Azure Function (https://diseaseextraction.azurewebsites.net/api/custom-search?code=HXS0y4rEoQZ9p55A7wqybSeYFmYP6Lruna8y8HoAGu3kNSoLf80XWw==) to extract the diseases.  You can use this as-is or change to the one you created in the previous module.
 
+You will also need to update the [Cognitive Services Key] with a valid Cognitive Services Key (that was created in the same region as your Azure Search service).
+
 PUT: https://[searchservice].search.windows.net/skillsets/patient-demo?api-version=2019-05-06
 
 Headers:
@@ -314,7 +316,7 @@ Body:
     "skills": [
 		{
 			"@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-			"description": "Buddi Health skill",
+			"description": "Diseaase Extraction skill",
 			"uri": "https://diseaseextraction.azurewebsites.net/api/custom-search?code=HXS0y4rEoQZ9p55A7wqybSeYFmYP6Lruna8y8HoAGu3kNSoLf80XWw==",
 			"batchSize":1,
 			"context": "/document",
@@ -439,7 +441,7 @@ Body:
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
         "description": "/subscriptions/ee787b9b-a25f-4d20-86e9-45fcea5253dd/resourceGroups/km-workshop/providers/Microsoft.CognitiveServices/accounts/kmworkshop",
-        "key": "0865429d5feb4287abf417099378e761"
+        "key": "[Cognitive Services Key]"
     }
 }
 ```
