@@ -89,7 +89,7 @@ We're going to go ahead and create the Knowledge Store now through the Azure Por
 ## Index Definition
 In this step, you are designing your Azure Search index.  This is an imporant and powerful part of the index build process as you select they types of Analyzer(s) you want to use and make determimations on features such as which fields and data will be retrievable, filterable, sortable, and searchable. (Liam to perhaps add some additional content here)
 
-1. Give your index a name like *clinical-trials-index*
+1. Give your index a name like *clinical-trials-small*
 
 2. Leave **Key** as the default option
 
