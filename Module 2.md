@@ -31,13 +31,16 @@ Update the following fields in the *appsettings.json* file to connect the web ap
   "GraphFacet": "diseases"
 ```
  
-###
-*Notes*
-1. *StorageContainerAddress* should be in the following format: **https://*storageaccountname*.blob.core.windows.net/*containername***
-2. *InstrumentationKey* is an optional field. The instrumentation key connects the web app to Application Inisghts in order to populate the Power BI reports.
-3. Key Field should be set to the field specified as a key document Id in the index.
-4. Sometimes metadata_storage_path is the key, and it gets base64 encoded. In that case set IsPathBase64Encoded to false.
-5. The GraphFacet is used for generating the relationship graph.
+### Notes
+1. **SearchServiceName** should be set to the name of the search service. (i.e. "myservice")
+1. **SearchApiKey** should be to the name of the search service. (i.e. "B8365AC95521089B7E3FA4CC98435")
+1. **SearchIndexName** should be set to the name of the index (i.e. "clinical-trials-small")
+1. **StorageAccountName** should be set to the name of the storage account (i.e. "mystorageaccount")
+1. **StorageContainerAddress** should be in the following format: *"https://*storageaccountname*.blob.core.windows.net/*containername*"*
+1. **InstrumentationKey** is an optional field. The instrumentation key connects the web app to Application Insights in order to populate the Power BI reports.
+1. **KeyField** should be set to the field specified as a key document Id in the index. (i.e. "metadata_storage_path")
+1. Sometimes metadata_storage_path is the key, and it gets base64 encoded. In that case set **IsPathBase64Encoded** to true.
+1. The **GraphFacet** is used for generating the relationship graph, set it to the name of the facet that you would like to use (i.e. "diseases"). Or leave blank if you won't use the node graph.
 
 
 ###
