@@ -99,12 +99,12 @@ and
 POST: https://{name of your service}.search.windows.net/indexes/[search index]/analyze?api-version=2019-05-06
 BODY:
 {
-  "text": "Gowchers",
+  "text": "mukopolisakaridosis",
   "analyzer": "my_phonetic"
 }
 ```
 
-Notice how both result in a token with the value: KXRS.
+Notice how both result in a token with the value: MKPL.
 
 ```json
 {
