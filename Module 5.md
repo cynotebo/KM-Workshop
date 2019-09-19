@@ -18,9 +18,9 @@ Azure Search provides various phoentic encoders that will encode words in differ
 ### Adding a Phonetic field to the Index
 Let's modify the index like we did in the previous module to add a new field called diseasesPhonetic which makes use of the Phonetic Custom Analyzer.
 
-Go back to your Postman application and bring up the POST request where you last updated the index with the diseases field.  If you do not have it there, you should be able to find it in the History requests.
+Go back to your Postman application and bring up the PUT request where you last updated the index with the diseases field.  If you do not have it there, you should be able to find it in the History requests.
 
-Modify the POST request by adding the following field:
+Modify the PUT request by adding the following field:
 ```json
 "fields": [
    ...,
@@ -58,22 +58,30 @@ Locate "tokenFilters": [] and replace it with:
   }],
 ```
 
-Since we are making incremental changes to the index schema we need to modify the POST request by adding:
+Since we are making incremental changes to the index schema we need to modify the PUT request by adding:
 ```
 &allowIndexDowntime=true
 ```
 Hit send to update the index
 
-We need to update the Indexer so that it knows to take the diseases and also write it to this new field.  
+We need to update the indexer so that it knows to take the diseases and also write it to this new field.
+
+Bring up the PUT request where you last updated the indexer with the diseases output field mapping.  If you do not have it there, you should be able to find it in the History requests.
+
+Add this outputFieldMapping to the indexer.
 
 ```json
 {
-            "sourceFieldName": "/document/diseases",
-            "targetFieldName": "diseasesPhonetic",
-            "mappingFunction": null
-        }
+	  "sourceFieldName": "/document/diseases",
+	  "targetFieldName": "diseasesPhonetic",
+	  "mappingFunction": null
+}
 ```
-Hit send to update the indexer and go back to the portal to run the Indexer again.
+Hit send to update the indexer and go back to the portal.
+
+In the portal, **RESET** the indexer and re **RUN** the indexer again.
+
+ ![](images/rerun.png)
 
 ### Testing the Analyzer
 You can validate what this encoding looks like by executing the following two requests using the Azure Search Analyze API against your search index and the phonetic analyzer "my_phonetic" that was created in the previous module.:
