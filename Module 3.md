@@ -6,7 +6,7 @@ In this module we will develop a custom skill to extend the data that was indexe
 1) Leveraging [facets](https://docs.microsoft.com/en-us/azure/search/search-filters-facets) to show the diseases and their counts that are mentioned in the corpus of search results
 2) [Filtering](https://docs.microsoft.com/en-us/azure/search/search-filters) documents that refer to a specific disease
 
-To do this, we will leverage a "[Custom Skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-web-api)" built using Azure Functions that will be called by Cognitive Search with the text from the underlying document.  The function will process this text and respond with the entities found in that text.  These entities will then be stored in a separate Azure Search Collection field.
+To do this, we will leverage a "[Custom Skill](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-web-api)" built using Azure Functions that will be called by Cognitive Search with the text from the underlying document. The function will process this text and respond with the entities found in that text.  These entities will then be stored in a separate Azure Search Collection field.
 
 We will also be using some of the released [Power Skills](https://azure.microsoft.com/en-us/resources/samples/azure-search-power-skills/).  Power Skills are simply a collection of useful functions to be deployed as custom skills for Azure Cognitive Search that we have made available to accelerate development.  Check this repository frequently as new updates to the Power Skill set will be released.
 
@@ -153,5 +153,5 @@ To create your own Azure Function:
 ## Azure Functions - Production vs Demo
 There are a number of items used above that are useful for development purposes, however not for production usage.  A few examples of this include:
 * Usage of the "code=" parameters in the above Azure Function is not a best practice for production, however, it is very convenient for development
-* We manually publised the function, however, in production scenarios it would be far more realistic to leverage a Continous Integration method of deployment
+* We manually published the function, however, in production scenarios it would be far more realistic to leverage a Continuous Integration method of deployment
 * In the configuration of the function, we chose a consumption plan.  For production, you would want to take a closer look at usage, so that you can adjust the scale of the function, which very likely could be higher and might require a dedicated or scaled out environment.
