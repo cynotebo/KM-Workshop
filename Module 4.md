@@ -67,7 +67,7 @@ Change the request to be a PUT with the following request structure. Send the re
 PUT  https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
 ``` 
 
-If the PUT request is successful you will get a status code of 204 Accepted. This indicates that the index updated successfully. There will be no content in the Body of the response.
+If the PUT request is successful you will be returned a status code of 204. This indicates that the index updated successfully. There will be no content in the Body of the response.
 
 Now let’s modify the skillset to incorporate the disease extractor we built in Module 2.
 
