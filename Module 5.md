@@ -81,6 +81,8 @@ Hit send to update the indexer and go back to the portal.
 
 In the portal, **RESET** the indexer and re **RUN** the indexer again.
 
+ ![](images/rerun.png)
+
 ### Testing the Analyzer
 You can validate what this encoding looks like by executing the following two requests using the Azure Search Analyze API against your search index and the phonetic analyzer "my_phonetic" that was created in the previous module.:
 
