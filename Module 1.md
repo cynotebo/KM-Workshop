@@ -16,7 +16,7 @@ The instructions that follow assume that you have completed all of the pre-requi
 
 + In the drop down for **Data Source**, choose *Azure Blob Storage*.
 
-+ **Name** your data source *clinical-trails-small*.
++ **Name** your data source *clinical-trials-small*.
 
 + Set **Data to Extract** to *Content and Metadata*
 
