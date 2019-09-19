@@ -87,7 +87,7 @@ We're going to go ahead and create the Knowledge Store now through the Azure Por
 
 
 ## Index Definition
-In this step, you are designing your Azure Search index.  This is an imporant and powerful part of the index build process as you select they types of Analyzer(s) you want to use and make determimations on features such as which fields and data will be retrievable, filterable, sortable, and searchable. 
+In this step, you are designing your Azure Search index.  This is an important and powerful part of the index build process as you select the types of Analyzer(s) you want to use and make determinations on features such as which fields and data will be retrievable, filterable, sortable, and searchable. 
 
 1. Give your index a name like *clinical-trials-small*
 
@@ -143,7 +143,7 @@ The search explorer is useful for performing queries like this, however most dev
 * api-key: [Enter Admin API Key from Azure Search portal]
 * Content-Type: application/json
 
-When we configured the Indexing of the content, we asked for locations to be extracted from the content.  Let's take a look at this by searching for morquio diseaese and limiting the results to only return the metadata_title, locations fields 
+When we configured the Indexing of the content, we asked for locations to be extracted from the content.  Let's take a look at this by searching for morquio disease and limiting the results to only return the metadata_title, locations fields 
 ```
 morquio&$select=metadata_title,locations
 ```
@@ -165,7 +165,7 @@ As a final query, we will use the autocomplete capability to suggest terms that 
 ```
 POST https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs/autocomplete?api-version=2019-05-06
 ```
-Set the body of the reqest as "raw" and include:
+Set the body of the request as "raw" and include:
 ```json
 {
    "fuzzy": true,
@@ -174,4 +174,4 @@ Set the body of the reqest as "raw" and include:
    "autocompleteMode": "twoTerms"
 }
 ```
-Notice how this request uses a suggesterName called "sg".  You will recall that when you configured the index, you selected some columns to be used to power these autocompelte requests.  
+Notice how this request uses a suggesterName called "sg".  You will recall that when you configured the index, you selected some columns to be used to power these autocomplete requests.  

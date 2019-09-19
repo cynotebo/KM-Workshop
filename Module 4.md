@@ -1,9 +1,9 @@
 # Learn the Object Model
-*Note - In this set of excersises,  you will be modifying the index created in module 1.  You will not be able to complete these steps until you have successfully completed all of Module 1.* 
+*Note - In this set of exercises, you will be modifying the index created in module 1.  You will not be able to complete these steps until you have successfully completed all of Module 1.* 
 
 In this module you will learn about the 4 main objects that allow you to get data from your data source into the index:
 + How to build and modify the index (object) programmatically. 
-+ How to modifly the index you created in Module 1
++ How to modify the index you created in Module 1
 
 
 As you walked though the Import Data Wizard in Module 1, it created 4 resources for you:
@@ -163,7 +163,7 @@ To get the URI, you will need to get it from the published skill you tested in m
 ```
 Remember that *document/diseases* refers to an array of strings, something like this:
 ```
-"document/disases": ["heart failure", "morquio", ...]
+"document/diseases": ["heart failure", "morquio", ...]
 ```
 and */document/diseases/** refers to the each of the members of that element -- each of those strings.
 
@@ -177,7 +177,7 @@ It's json representation would look something like this:
 ```
 "document/tableprojection" :
 {
-	"lasUptdatePosted": "August 10, 2017",
+	"lastUpdatePosted": "August 10, 2017",
 	"diseases" : [
 	    {
 	        "disease": "heart failure"
@@ -232,7 +232,7 @@ After you have made both changes, complete the PUT request.
 ```
 PUT https://{your-service-name-goes-here}.search.windows.net/skillsets/clinical-trials-small?api-version=2019-05-06-Preview
 ```
-It is important that you use version 2019-05-06*-Preview* because the knowlege store projections are still in Preview mode.
+It is important that you use version 2019-05-06-Preview because the knowledge store projections are still in Preview mode.
 
 *Note that you can create, get, edit and delete each of the resources (index, data source, indexer, skillset) using REST APIs, just like you did with the skillset*.
 
