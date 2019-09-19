@@ -4,7 +4,8 @@ Please make sure you fulfill the following pre-requisites before starting the wo
 
 1.	Have your own Azure account 
 2.	Be familiar [Azure Portal](https://portal.azure.com)
-3.	Make sure you can create Azure resources (including paid resources).
+3.	Make sure you can create Azure resources in your subscription (including paid resources).
+ + *Note, if your organizations policy prohibits you from creating resources in the subscription, you can use a [free subscription](aka.ms/freesubscription) for the purposes of this lab*.
 4. Create a resource group for this workshop where you will add each of the resources you will create in the next steps.
 4. **Create** an [Azure Storage Account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 Select Performance: *Standard* tier, not Premium
