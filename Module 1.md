@@ -178,4 +178,7 @@ Set the body of the request as "raw" and include:
    "autocompleteMode": "twoTerms"
 }
 ```
-Notice how this request uses a suggesterName called "sg".  You will recall that when you configured the index, you selected some columns to be used to power these autocomplete requests.  
+Notice how this request uses a suggesterName called "sg".  You will recall that when you configured the index, you selected some columns to be used to power these autocomplete requests.
+
+
+### Next: [Module 2: Visualizing the Results with a Demo FrontEnd](Module&#32;2.md)

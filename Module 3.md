@@ -1,4 +1,4 @@
-# Introduction to Azure Functions and Custom Skills
+# Module 3: Introduction to Azure Functions and Custom Skills
 Objective: Introduce the tools and provide concepts key to building [custom skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface). Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever enrichment step you require and allowing you to develop extremely powerful and domain specific knowledge mining solutions.  
 
 In this module we will develop a custom skill to extend the data that was indexed in the previous module.  Your new skill will identify and extract disease names from the data set and store them as entities in a separate field attached to the document.  By doing this, it will allow us to leverage capabilities such as:
@@ -155,3 +155,5 @@ There are a number of items used above that are useful for development purposes,
 * Usage of the "code=" parameters in the above Azure Function is not a best practice for production, however, it is very convenient for development
 * We manually published the function, however, in production scenarios it would be far more realistic to leverage a Continuous Integration method of deployment
 * In the configuration of the function, we chose a consumption plan.  For production, you would want to take a closer look at usage, so that you can adjust the scale of the function, which very likely could be higher and might require a dedicated or scaled out environment.
+
+### Next: [Module 4: Learn the Object Model](Module&#32;4.md)
