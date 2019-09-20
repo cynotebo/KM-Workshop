@@ -146,7 +146,7 @@ You can retrieve the API key by pulling up your search service in the Azure Port
 
 When we configured the Indexing of the content, we asked for locations to be extracted from the content.  Let's take a look at this by searching for morquio disease and limiting the results to only return the metadata_title, locations fields. Remember to update {name of your service} with the name of your search service.
 ```
-GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs?search=morquio&$select=metadata_title,locations
+GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs?api-version=2019-05-06&search=morquio&$select=metadata_title,locations
 ```
 
 Here's what the request will look like in Postman:
@@ -157,13 +157,13 @@ Notice how the *locations* field is a Collection (or array of strings) that incl
 
 Let's try to group all of the *locations* by using Faceting.
 ```
-GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs?search=morquio&$select=metadata_title,locations&facet=locations
+GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs?api-version=2019-05-06&search=morquio&$select=metadata_title,locations&facet=locations
 ```
 We can see how the search results has added a list of the top locations and how often they are found in documents that talk about Morquio.
 
 Next, let's filter the results to documents that refer to Morquio and have a Location of "Emory University"
 ```
-GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs?search=morquio&$select=metadata_title,locations&$filter=locations/any(location: location eq 'Emory University') 
+GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs?api-version=2019-05-06&search=morquio&$select=metadata_title,locations&$filter=locations/any(location: location eq 'Emory University')
 ```
 
 As a final query, we will use the autocomplete capability to suggest terms that match what a user types.  You have likely seen this in search boxes where users start typing and the system quickly suggests potential matches.  Notice how this request is a POST as opposed to a GET.
