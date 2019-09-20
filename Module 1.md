@@ -152,7 +152,9 @@ When we configured the Indexing of the content, we asked for locations to be ext
 GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs?search=morquio&$select=metadata_title,locations
 ```
 
-![](images/querywithselect.png)
+Here's what the request will look like in Postman:
+
+ ![](images/querywithselect.PNG)
 
 Notice how the *locations* field is a Collection (or array of strings) that includes all the Location names extracted from the content.
 
