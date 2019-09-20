@@ -35,4 +35,4 @@ Select Account kind: *StorageV2 (general purpose v2)*
 11. **Install** [Postman](https://www.getpostman.com/)
 11. **Install** [PowerBI desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
-
+### Next: [Module 1: Using Azure Portal to Create Your Index - No Code Required](Module&#32;1.md)

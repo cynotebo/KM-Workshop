@@ -1,4 +1,4 @@
-# Visualizing the Results with a Demo FrontEnd
+# Module 2: Visualizing the Results with a Demo FrontEnd
 Now that you've built your Search index, we'll take a moment to build and deploy a simple web-page that will allow you to visualize your initial search results.  We'll come back to this view throughout the lab and take special note of how our search results change as we add additional features and capabilities.
 
 To get started with this exercise, we will be using and getting familiar with the [Knowledge Mining solution accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) to create our front-end experience.  This accelerator was published to provide developers with all of the steps and tools required to build a working minimally viable knowledge mining solution.  Take a few moments to note that it contains modules to: deploy the required Azure resources; build custom skills; and present the results in a simple, but elegant front-end.  At the end of this lab, your results will look similar to this:
@@ -63,5 +63,5 @@ Much of the UI is rendered dynamically by javascript. Some important files to kn
 
 2. **wwroot/js/details.js** - contains the code for rending the detail view once a result is selected
 
-
+### Next: [Module 3: Introduction to Azure Functions and Custom Skills](Module&#32;3.md)
 

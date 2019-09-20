@@ -1,4 +1,4 @@
-# Learn the Object Model
+# Module 4: Learn the Object Model
 *Note - In this set of exercises, you will be modifying the index created in module 1.  You will not be able to complete these steps until you have successfully completed all of Module 1.* 
 
 In this module you will learn about the 4 main objects that allow you to get data from your data source into the index:
@@ -280,3 +280,5 @@ Let's also use this new field to allow us to do a strict filter to any documents
 search=*&$filter=diseases/any(disease: disease eq 'morquio')&$select=metadata_title,diseases
 
 Try adjusting this query to only include documents that talk about 'morquio' and do not talk about 'hunter's disease'
+
+### Next: [Module 5: Advanced Search](Module&#32;5.md)
