@@ -21,6 +21,8 @@ The instructions that follow assume that you have completed all of the pre-requi
 + Set **Data to Extract** to *Content and Metadata*
 
 + For the **Connection String** click *Choose an existing connection* and select your storage account. Select the *clinical-trials-small* container.
+
+    + If you're not able to find the storage account you want to use by selecting *Choose an existing connection* you can always manually add the connection string. To get your connection string, view your storage account in the Azure Portal, select *Access keys* and copy the *Connection String*. Paste this as the *Connection string*. Then add the *Container name* which will be *clinical-trials-small*.
  
    Your screen should now look similar to this:
 
