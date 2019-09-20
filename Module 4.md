@@ -30,7 +30,7 @@ The first change we will make is to add two new fields.  The first one, called "
 
 We can first retrieve the current index schema by opening Postman and making the following GET request:
 ```
-GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
+GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06
 ```
 For all of the subsequent requests, you will need to set the following two headers values:
 * api-key: [Enter Admin API Key from Azure Search portal]
@@ -64,7 +64,7 @@ Copy the index schema that was returned with the GET request into the Body. Upda
 Change the request to be a PUT with the following request structure. Send the request to update the index.
 
 ```
-PUT  https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06-Preview
+PUT  https://{name of your service}.search.windows.net/indexes/clinical-trials-small?api-version=2019-05-06
 ``` 
 
 If the PUT request is successful you will be returned a status code of 204. This indicates that the index updated successfully. There will be no content in the Body of the response.
