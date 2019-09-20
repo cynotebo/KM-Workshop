@@ -19,11 +19,11 @@ Open **CognitiveSearch.UI.csproj** (02-Web UI Template\CognitiveSearch.UI) in Vi
 Update the following fields in the *appsettings.json* file to connect the web app to your storage account, search index, and app insights account:
 
 ```json
-  "SearchServiceName": "",
+  "SearchServiceName": "Your Search Service Name",
   "SearchApiKey": "Your Search Service key",
   "SearchIndexName": "clinical-trials-small",
   "InstrumentationKey": "",
-  "StorageAccountName": "",
+  "StorageAccountName": "Your storage Account Name",
   "StorageAccountKey": "Your Storage Account Key",
   "StorageContainerAddress": "Your Storage Container Address",
   "KeyField": "metadata_storage_path",
