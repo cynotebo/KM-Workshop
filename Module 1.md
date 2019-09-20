@@ -139,17 +139,24 @@ Add a parameter &$count=true to determine that there are 8 documents that refer 
 gauchers&highlight=content&$count=true
 ```
 
-The search explorer is useful for performing queries like this, however most developers want to use external tools to start working against the service.  For that reason, open Postman to perform the rest of the below search queries.  To set up the queries we will use set the Headers as:
+### Searching the Content using Postman
+
+The search explorer is useful for performing queries like this, however most developers want to use external tools to start working against the service.  For that reason, open Postman to perform the rest of the below search queries.  To set up the queries we will set the Headers as:
 * api-key: [Enter Admin API Key from Azure Search portal]
 * Content-Type: application/json
 
-When we configured the Indexing of the content, we asked for locations to be extracted from the content.  Let's take a look at this by searching for morquio disease and limiting the results to only return the metadata_title, locations fields 
+You can retrieve the API key by pulling up your search service in the Azure Portal, selecting Keys, then copying one of the available admin keys.
+
+When we configured the Indexing of the content, we asked for locations to be extracted from the content.  Let's take a look at this by searching for morquio disease and limiting the results to only return the metadata_title, locations fields. Remember to update {name of your service} with the name of your search service.
 ```
-morquio&$select=metadata_title,locations
+GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs?search=morquio&$select=metadata_title,locations
 ```
+
+![](images/querywithselect.png)
+
 Notice how the *locations* field is a Collection (or array of strings) that includes all the Location names extracted from the content.
 
-Let's try to group all of the *locations* by using Faceting.  Remember to update {name of your service} with the name of your search service.
+Let's try to group all of the *locations* by using Faceting.
 ```
 GET https://{name of your service}.search.windows.net/indexes/clinical-trials-small/docs?search=morquio&$select=metadata_title,locations&facet=locations
 ```
