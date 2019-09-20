@@ -20,14 +20,9 @@ The instructions that follow assume that you have completed all of the pre-requi
 
 + Set **Data to Extract** to *Content and Metadata*
 
-+ Set the **Connection String** to 
-   ```
-   ContainerSharedAccessUri=https://kmworkshop.blob.core.windows.net/clinical-trials-small?st=2019-09-13T22%3A58%3A18Z&se=2020-09-14T22%3A58%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=M7MPfuxZvVvBkf0Jgg%2BvKWyB49RFYlGNhQ4%2F1nIJ9DU%3D
-
-   ```
-   This is a read-only connection string to a container with about a hundred clinical trials.
++ For the **Connection String** click *Choose an existing connection* and select your storage account. Select the *clinical-trials-small* container.
  
-   Your screen should now look like this:
+   Your screen should now look similar to this:
 
    ![](images/chooseconnection.png)
 
@@ -35,7 +30,7 @@ The instructions that follow assume that you have completed all of the pre-requi
 
 ## Skillset
 
-In Azure Search, we call extraction and enrichment steps cognitive skills, which are combined into a skillset referenced during indexing.  In this exercise, you will be learning how to use the [built-in skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills) through the Azure Portal.  In a later module, we will show you how to attach these skills programattically and how to build your own [custom skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface). 
+In Azure Search, we call extraction and enrichment steps cognitive skills, which are combined into a skillset referenced during indexing.  In this exercise, you will be learning how to use the [built-in skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills) through the Azure Portal.  In a later module, we will show you how to attach these skills programmatically and how to build your own [custom skills](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface).
 
 In the next three steps, you will be working through the three drop-down arrows presented: 
 
