@@ -1,5 +1,3 @@
-# This content is under construction - please do not use yet
-## Configure 
 # Securing Secrets in Web App using Azure Key Vault
 
 This section outlines how to leverage Azure Key Vault to secure secrets such as the Azure Search and Azure Blob API-Keys in a safe location as opposed to storing the secrets in the code of the Web App.
@@ -128,3 +126,8 @@ You may wish to set breakpoints on the code that you added to make sure things a
 
 At this point, you should be able to build and run the project.
 
+### Deploying the Web App (Azure App Services)
+
+When deploying the web app to Azure App Services, we will want to have our Key Vault trust the app service hosting this web app.  To do this, you will first need to have an Azure App Service created.  Within the App Service choose Identity and under "System Assigned", turn it ON and Save the changes.  Copy the Object ID created.  This creates what is called a System Managed Identity.  This managed identity is registered in Azure Active Directory and can then be used by Key Vault to authenticate the app service and allow it to access the secrets.
+
+![](/images/kv-app-identity.png)
