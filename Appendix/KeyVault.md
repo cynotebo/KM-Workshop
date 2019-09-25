@@ -131,3 +131,14 @@ At this point, you should be able to build and run the project.
 When deploying the web app to Azure App Services, we will want to have our Key Vault trust the app service hosting this web app.  To do this, you will first need to have an Azure App Service created.  Within the App Service choose Identity and under "System Assigned", turn it ON and Save the changes.  Copy the Object ID created.  This creates what is called a System Managed Identity.  This managed identity is registered in Azure Active Directory and can then be used by Key Vault to authenticate the app service and allow it to access the secrets.
 
 ![](/images/kv-app-identity.png)
+
+Now, switch to your Azure Key Vault and choose Access Policies and choose "Add Access Policy".  
+
+* Secret Permissions: Choose Get & List
+* Select Principal: Click and paste in the Object ID copied from the previous step where you created the managed identity.  This should find your web app.  You can alternatively choose the name of your web app, however make sure you choose the correct one.
+
+Add this policy and choose Save.
+
+You can now deploy your app from Visual Studio to this app service and everything should work, just as it did when running locally.
+
+### Final Thoughts
