@@ -39,6 +39,12 @@ Choose "Create" to add this key to the key vault and you should see two secrets 
 
 This section assumes you have at least completed Module 2 which created an Web App to search and visualize data from Azure Search.  In this section, we will remove the "SearchApiKey" and "StorageAccountKey" stored in the appsettings.json file and update the code to load the Azure Search API and Azure Blob API key from Key Vault when the application starts.
 
+
+### Add Nuget Package
+
+From Visual Studio, open the CognitiveSearch.UI project and from the Solution Explorer, right click on Dependancies and choose "Manage Nuget Packages".  Search for and add "Microsoft.Extenstions.Configuration.AzureKeyVault".  At the time of writing, version 3.0.0 was used.
+![](/images/kv-nuget.png)
+
 ### Remove SearchApiKey
 
 From Visual Studio, open the CognitiveSearch.UI project and open appsettings.json.
