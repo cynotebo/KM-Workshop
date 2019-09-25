@@ -1,8 +1,8 @@
 # This content is under construction - please do not use yet
 ## Configure 
-# Securing Azure Search Credentials in Web App using Azure Key Vault
+# Securing Secrets in Web App using Azure Key Vault
 
-This section outlines how to leverage Azure Key Vault to secure secrets such as the Azure Search API-Key in a safe location as opposed to storing the secrets in the code of the Web App.
+This section outlines how to leverage Azure Key Vault to secure secrets such as the Azure Search and Azure Blob API-Keys in a safe location as opposed to storing the secrets in the code of the Web App.
 
 ## Create the Key Vault
 From Azure Portal, create a new “Key Vault”
@@ -23,6 +23,18 @@ NOTE: To get your Azure Search API Key, open your Azure Search service and choos
 
 Choose "Create" to add this key to the key vault.
 
+Once again, choose "Generate/Import" to create a secret to store the Azure Blob API Key.  
+
+Set the following values:
+* Name: azure-blob-api-key
+* Value: [Enter your Azure Blob API Key]
+
+![](/images/kv-set-secret-blob.png)
+
+Choose "Create" to add this key to the key vault and you should see two secrets as follows:
+
+![](/images/kv-view-list.png)
+
 ## Configure Web App to use Key Vault
 
 This section assumes you have at least completed Module 2 which created an Web App to search and visualize data from Azure Search.  In this section, we will remove the "SearchApiKey" stored in the appsettings.json file and update the code to load the Azure Search API key from Key Vault when the application starts.
@@ -35,3 +47,4 @@ Remove the line:
 ```
 "SearchApiKey": ...
 ```
+
