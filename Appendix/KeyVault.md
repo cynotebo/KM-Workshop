@@ -42,10 +42,15 @@ This section assumes you have at least completed Module 2 which created an Web A
 
 ### Add Nuget Package
 
-From Visual Studio, open the CognitiveSearch.UI project and from the Solution Explorer, right click on Dependancies and choose "Manage Nuget Packages".  Search for and add "Microsoft.Extenstions.Configuration.AzureKeyVault".  At the time of writing, version 3.0.0 was used.
+From Visual Studio, open the CognitiveSearch.UI project and from the Solution Explorer, right click on Dependancies and choose "Manage Nuget Packages".  Search for and add:
+```
+Microsoft.Extensions.Configuration.AzureKeyVault
+```
+At the time of writing, version 3.0.0 was used.
+
 ![](/images/kv-nuget.png)
 
-### Remove SearchApiKey
+### Remove Secrets
 
 From Visual Studio, open the CognitiveSearch.UI project and open appsettings.json.
 
@@ -54,4 +59,46 @@ Remove the lines:
 "SearchApiKey": ...
 "StorageAccountKey": ...
 ```
+
+### Add Code to Download Secrets from Key Vault
+
+Open Program.cs and update the BuildWebHost to load the Key Vault secrets as follows.  Update [Your Key Vault Service Name] to the name of your Key Vault service name.  
+
+```
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    // You can alter below code between dev and production using context.HostingEnvironment.IsProduction()
+                    var builtConfig = config.Build();
+
+                    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    var keyVaultClient = new KeyVaultClient(
+                        new KeyVaultClient.AuthenticationCallback(
+                            azureServiceTokenProvider.KeyVaultTokenCallback));
+
+                    config.AddAzureKeyVault(
+                        $"https://[Your Key Vault Service Name].vault.azure.net/",
+                        keyVaultClient,
+                        new DefaultKeyVaultSecretManager());
+                })
+                .Build();
+
+```
+
+At the top of Program.cs, add the following references:
+
+```
+using Microsoft.Azure.KeyVault;
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.AzureKeyVault;
+using Microsoft.Extensions.Logging;
+```
+
+This code will run when the web app first runs and load all the secrets into the config for this web app which are then accessible by the application as needed.  One of the great capabilities of Key Vault is the fact that when you run it locally, it will use the user you are configured to log in as.  If you need to change or view the user currently configured, choose Tools -> Options -> Azure Service Authentication -> Account Selection.  In order for the above code to be able to access your key vault when running from your local machine, this user should match what is configured in your Key Vault under "Access policies".  You can choose to remove or adjust the access of this user as needed.
+
+![](/images/kv-access-policies.png)
+
 
