@@ -4,6 +4,6 @@
 
 This section outlines how to leverage Azure Key Vault to secure secrets such as the Azure Search API-Key in a safe location as opposed to storing the secrets in the code of the Web App.
 
-![](images/create-kv-1.png)
-![](images/create-kv-2.png)
+![](/images/create-kv-1.png)
+![](/images/create-kv-2.png)
 
