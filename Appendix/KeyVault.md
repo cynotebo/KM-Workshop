@@ -101,4 +101,30 @@ This code will run when the web app first runs and load all the secrets into the
 
 ![](/images/kv-access-policies.png)
 
+Finally, we can update the calls to set the Azure Search and Azure Blob API keys with the values loaded from Key Vault.  To do this, open DocumentSearchClient.cs and replace the line:
+
+```
+apiKey = configuration.GetSection("SearchApiKey")?.Value;
+```
+
+with the Key Vault secret named azure-search-api-key:
+```
+apiKey = configuration.GetSection("azure-search-api-key")?.Value;
+```
+
+Open HomeController.cs and update the Blob API Key from:
+
+```
+string accountKey = _configuration.GetSection("StorageAccountKey")?.Value;
+```
+
+to:
+
+```
+string accountKey = _configuration.GetSection("azure-blob-api-key")?.Value;
+```
+
+You may wish to set breakpoints on the code that you added to make sure things are set as you expected.
+
+At this point, you should be able to build and run the project.
 
