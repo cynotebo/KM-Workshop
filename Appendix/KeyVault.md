@@ -15,7 +15,7 @@ Set the following values:
 * Name: azure-search-api-key
 * Value: [Enter your Azure Search Admin API Key]
 
-NOTE: To get your Azure Search API Key, open your Azure Search service and choose "Keys".  You can use your Admin API key for this demo, however, it is best practice to use least priviledges, so you may want to create and use a [Query API Key](https://docs.microsoft.com/en-us/azure/search/search-security-api-keys).
+NOTE: To get your Azure Search API Key, open your Azure Search service and choose "Keys".  You can use your Admin API key for this demo, however, it is best practice to use least privileges, so you may want to create and use a [Query API Key](https://docs.microsoft.com/en-us/azure/search/search-security-api-keys).
 
 ![](/images/kv-set-secret.png)
 
