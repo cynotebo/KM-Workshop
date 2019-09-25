@@ -37,7 +37,6 @@ Choose "Create" to add this key to the key vault and you should see two secrets 
 
 This section assumes you have at least completed Module 2 which created an Web App to search and visualize data from Azure Search.  In this section, we will remove the "SearchApiKey" and "StorageAccountKey" stored in the appsettings.json file and update the code to load the Azure Search API and Azure Blob API key from Key Vault when the application starts.
 
-
 ### Add Nuget Package
 
 From Visual Studio, open the CognitiveSearch.UI project and from the Solution Explorer, right click on Dependancies and choose "Manage Nuget Packages".  Search for and add:
@@ -137,8 +136,12 @@ Now, switch to your Azure Key Vault and choose Access Policies and choose "Add A
 * Secret Permissions: Choose Get & List
 * Select Principal: Click and paste in the Object ID copied from the previous step where you created the managed identity.  This should find your web app.  You can alternatively choose the name of your web app, however make sure you choose the correct one.
 
+![](/images/kv-access-policy-system.png)
+
 Add this policy and choose Save.
 
 You can now deploy your app from Visual Studio to this app service and everything should work, just as it did when running locally.
 
 ### Final Thoughts
+
+The above steps are very comprehensive for securing credentials for the purposes of testing and proof of concepts.  As you progress in development, it is very likely you will leverage techniques such as Continuous Integration.  This typically will need to consider additional aspects such as separation of dev and production keys.  It is highly recommended that you [read more about this here](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-best-practices).
