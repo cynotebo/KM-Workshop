@@ -37,14 +37,15 @@ Choose "Create" to add this key to the key vault and you should see two secrets 
 
 ## Configure Web App to use Key Vault
 
-This section assumes you have at least completed Module 2 which created an Web App to search and visualize data from Azure Search.  In this section, we will remove the "SearchApiKey" stored in the appsettings.json file and update the code to load the Azure Search API key from Key Vault when the application starts.
+This section assumes you have at least completed Module 2 which created an Web App to search and visualize data from Azure Search.  In this section, we will remove the "SearchApiKey" and "StorageAccountKey" stored in the appsettings.json file and update the code to load the Azure Search API and Azure Blob API key from Key Vault when the application starts.
 
 ### Remove SearchApiKey
 
 From Visual Studio, open the CognitiveSearch.UI project and open appsettings.json.
 
-Remove the line:
+Remove the lines:
 ```
 "SearchApiKey": ...
+"StorageAccountKey": ...
 ```
 
