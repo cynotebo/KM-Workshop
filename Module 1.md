@@ -93,6 +93,7 @@ In this step, you are designing your Azure Search index.  This is an important a
 3. Under **Suggester name** add sg and set **Search mode** to *analyzingInfixMatching*
 
 4.	In the index definition fields:
+      + Add a new field called trials, set the type to Edm.String
       + Make sure all the fields are **retrievable**. 
       + Make sure that the locations field is **retrievable / facetable / filterable / searchable**.
       + Set **English-Microsoft** as the *Analyzer* for all searchable fields since the content is in English.
