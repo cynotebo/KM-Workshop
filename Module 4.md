@@ -279,6 +279,17 @@ This tells the search engine to search all documents (*) and group the results b
 Let's also use this new field to allow us to do a strict filter to any documents that talk about the disease "morquio"
 search=*&$filter=diseases/any(disease: disease eq 'morquio')&$select=metadata_title,diseases
 
-Try adjusting this query to only include documents that talk about 'morquio' and do not talk about 'hunter's disease'
+Try adjusting this query to only include documents that talk about 'morquio' and do not talk about 'chest pain'
+
+<details>
+  <summary>Click for the answer</summary>
+  <p>
+
+  ```
+  search=*&$filter=diseases/any(disease: disease eq 'morquio') and diseases/all(disease: disease ne 'chest pain')&$select=metadata_title,diseases
+```
+
+  </p>
+</details>
 
 ### Next: [Module 5: Advanced Search](Module&#32;5.md)
