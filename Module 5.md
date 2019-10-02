@@ -135,7 +135,7 @@ Let's create a scoring profile for this.
 * Choose Scoring Profiles and choose "Add Scoring Profile"
 * Name it "recentlyUpdatedBoost" and choose "Add Scoring Profile" to save it
 
- ![](images/scoring_profile.png)
+  ![](images/scoring_profile.png)
  
 * In the resulting scoring profile, choose "Add functions"
 * Select "Add scoring function"
