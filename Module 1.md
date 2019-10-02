@@ -95,6 +95,7 @@ In this step, you are designing your Azure Search index.  This is an important a
 4.	In the index definition fields:
       + Make sure all the fields are **retrievable**. 
       + Make sure that the locations field is **retrievable / facetable / filterable / searchable**.
+      + Make sure that the lastUpdatePosted field is **retrievable / filterable / sortable**.
       + Set **English-Microsoft** as the *Analyzer* for all searchable fields since the content is in English.
       + Select **Suggester** for trials, metadata_author, metadata_title and locations
       + You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
