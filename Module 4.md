@@ -105,7 +105,7 @@ We’ll modify the skills list, and also add the diseases to our table projectio
 
 Paste the response we got from the GET request, and add the additional skill. 
 
-To get the URI, you will need to get it from the published skill you tested in module 2, but this is what it looked like for my skill…
+To get the URI, you will need to get it from the published skill you tested in module 3, but this is what it looked like for my skill…
 
 ```
          {
