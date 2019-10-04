@@ -128,13 +128,13 @@ Let's try a few additional queries:
 
 Search for references to "Gaucher's" disease and do hit highlighting of the content where there is a reference to it:
 ```
-gauchers&highlight=content
+gaucher&highlight=content
 ```
 Notice as you scroll through the results that the English-Microsoft Analyzer was able to pick up variations to this phrase such as "Gaucher" and "Gaucher's" and highlights them using default <em> </em> tags.
 
 Add a parameter &$count=true to determine that there are 8 documents that refer to "Gaucher's" disease:
 ```
-gauchers&highlight=content&$count=true
+gaucher&highlight=content&$count=true
 ```
 
 ### Searching the Content using Postman
