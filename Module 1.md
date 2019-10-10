@@ -41,7 +41,7 @@ In the next three steps, you will be working through the three drop-down arrows 
 
 ### Attach the Cognitive Services 
 
-This is the resource you created earlier as part of your intial lab set up and is used to power your pre-built AI models.
+This is the resource you created earlier as part of your initial lab set up and is used to power your pre-built AI models.
 
 ![](images/skillset.png)
 
@@ -49,7 +49,7 @@ This is the resource you created earlier as part of your intial lab set up and i
 
 Name your skillset: *clinical-trials-small*
 
-+ Make sure to select the **OCR enrichment** to extract **merged_content** field. Now we can apply an enrichment to the merged_content field to extract the locations.
++ Make sure to select the **OCR enrichment** to extract **merged_content** field.
 
 + **Change the name of the generated field to be locations with a lowercase 'l'.**
  
