@@ -227,7 +227,7 @@ Let's add one more table to the list for our new diseases member.
 ```
 When we do this, each disease extracted will be given a unique identifier (*Diseaseid*). Since "/document/tableprojection/diseases/\*" is a child of "/document/tableprojection", the diseases table will automatically also get column called "Documentid".
 
-After you have made both changes, complete the PUT request.
+After you have made these changes, complete the PUT request.
 
 ```
 PUT https://{your-service-name-goes-here}.search.windows.net/skillsets/clinical-trials-small?api-version=2019-05-06-Preview
