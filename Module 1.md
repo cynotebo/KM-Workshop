@@ -100,6 +100,7 @@ In this step, you are designing your Azure Search index.  This is an important a
       + Set **English-Microsoft** as the *Analyzer* for all searchable fields since the content is in English.
       + Select **Suggester** for trials, metadata_author, metadata_title and locations
       + You can make layoutText not searchable/retrievable since we won’t need it for this workshop.
+      + Make sure you rename 'Location' to 'location' (lowercase) as future steps will use 'location'.
 
       ![](images/indexdef.png)
 
